@@ -11,7 +11,7 @@ import os
 import random
 import requests
 
-api_keys= json.loads(os.getenv('APIKEYS'))
+api_keys= json.loads(os.getenv('API_KEYS'))
 api_key = api_keys['API_KEY']
 api_secret = api_keys['API_SECRET']
 token = Bot(token=api_keys['token'])
