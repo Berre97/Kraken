@@ -1,1 +1,56 @@
+name: Manage Data in Repository
 
+on:
+  schedule:
+    - cron: '58 * * *  *'  # Draait dagelijks om 14:00, 20:00, 02:00, 08:00 UTC
+  workflow_dispatch:  # Maakt handmatige triggers mogelijk
+
+jobs:
+  manage-data:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set environment variable for JSON file
+        run: |
+          "FILE_PATH=CryptoOrders.json" | Out-File -FilePath $env:GITHUB_ENV -Append
+        shell: pwsh
+
+      - name: Debug environment variable
+        run: |
+          Write-Output "FILE_PATH is: $env:FILE_PATH"
+        shell: pwsh
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Delay execution
+        run: |
+          echo "Waiting for 5 minutes..."
+          Start-Sleep -Seconds 60
+        shell: pwsh
+        
+      - name: Run script
+        env:
+          FILE_PATH: ${{ env.FILE_PATH }}
+          API_KEYS: ${{ secrets.APIKEYS }}
+        run: |
+          python BOT.py
+
+      - name: Commit and push changes if there are any
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          if ([System.IO.File]::Exists("${{ env.FILE_PATH }}")) {
+            git add ${{ env.FILE_PATH }}
+            git commit -m "Update ${{ env.FILE_PATH }}"
+            git push
+          } else {
+            Write-Output "No changes to commit."
+          }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
