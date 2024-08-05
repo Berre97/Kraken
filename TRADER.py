@@ -1,5 +1,4 @@
 
-from python_bitvavo_api.bitvavo import Bitvavo
 import json
 import pandas as pd
 import numpy as np
@@ -10,6 +9,7 @@ import asyncio
 from datetime import datetime, timedelta
 import os
 import random
+import requests
 
 api_keys= json.loads(os.getenv('APIKEYS'))
 api_key = api_keys['API_KEY']
