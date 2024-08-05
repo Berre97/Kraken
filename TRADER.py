@@ -345,7 +345,7 @@ if __name__ == '__main__':
     # file_path = 'CryptoOrders.json'
     file_path = os.getenv('FILE_PATH')
     bot = apibot(file_path=file_path, markets=['SOLEUR', 'ADAEUR', 'AVAXEUR', 'ICPEUR',
-                                               'COTIEUR', 'JUPEUR', 'MANTAEUR', 'CFXEUR'])
+                                               'COTIEUR', 'JUPEUR'])
     asyncio.run(bot.main(bot))
 
 
