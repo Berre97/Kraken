@@ -28,11 +28,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # - name: Delay execution
-      #   run: |
-      #     echo "Waiting for 5 minutes..."
-      #     Start-Sleep -Seconds 60
-      #   shell: pwsh
+      - name: Delay execution
+        run: |
+          echo "Waiting for 5 minutes..."
+          Start-Sleep -Seconds 60
+        shell: pwsh
         
       - name: Run script
         env:
