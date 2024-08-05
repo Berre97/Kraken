@@ -39,7 +39,7 @@ jobs:
           FILE_PATH: ${{ env.FILE_PATH }}
           API_KEYS: ${{ secrets.APIKEYS }}
         run: |
-          python BOT.py
+          python TRADER.py
 
       - name: Commit and push changes if there are any
         run: |
