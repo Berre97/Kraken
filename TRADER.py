@@ -80,7 +80,7 @@ class apibot():
 
 
     def get_data(self, market):
-          url = base_url + endpoint
+        url = base_url + endpoint
         params = {
             'pair': {market},  # Het handelspaar, bijvoorbeeld Bitcoin tegen USD
             'interval': 60, 
