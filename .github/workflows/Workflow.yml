@@ -2,7 +2,7 @@ name: Manage Data in Repository
 
 on:
   schedule:
-    - cron: '57 * * *  *' 
+    - cron: '58 * * *  *' 
 
   workflow_dispatch: 
 
