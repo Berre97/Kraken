@@ -165,10 +165,10 @@ class apibot():
         df['Stoch_K'] = stoch
         df['Stoch_D'] = ta.momentum.stoch_signal(df['high'], df['low'], df['close'], window=14, smooth_window=3)
         df['SMA_20_above_SMA_200'] = df[['SMA_20', 'SMA_200']].apply(lambda row: row['SMA_20'] > row['SMA_200'], axis=1)
-        df['SMA_above'] = df['SMA_20_above_SMA_200'].rolling(window=48).sum() == 12
+        df['SMA_above'] = df['SMA_20_above_SMA_200'].rolling(window=48).sum() == 48
         
         df['SMA_200_above_SMA_20'] = df[['SMA_20', 'SMA_200']].apply(lambda row: row['SMA_20'] < row['SMA_200'], axis=1)
-        df['SMA_below'] = df['SMA_200_above_SMA_20'].rolling(window=48).sum() == 12
+        df['SMA_below'] = df['SMA_200_above_SMA_20'].rolling(window=48).sum() == 48
 
         # On Balance Volume (OBV)
         df['OBV'] = ta.volume.on_balance_volume(df['close'], df['volume'])
@@ -203,7 +203,7 @@ class apibot():
                 buy_order = {'type': 'Bought', 'strategy': 'Long', 'symbol': last_row['market'],
                                                     'time': str(last_index.to_pydatetime()),
                                                     'closing_price': float(last_row['close']),
-                                                    'order': order_number, 'strategy': 'RSI_Oversold, up_trend'}
+                                                    'order': order_number}
 
       
                 print(buy_order)
@@ -269,7 +269,7 @@ class apibot():
                 buy_order = {'type': 'Bought', 'strategy': 'Short', 'symbol': last_row['market'],
                                                     'time': str(last_index.to_pydatetime()),
                                                     'closing_price': float(last_row['close']),
-                                                    'order': order_number, 'strategy': 'RSI_Oversold, up_trend'}
+                                                    'order': order_number}
 
       
                 print(buy_order)
