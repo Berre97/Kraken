@@ -109,9 +109,6 @@ class apibot():
           # Golden Cross / Death Cross
           df['Golden_Cross'] = np.where((df['SMA_50'] > df['SMA_200']) & (df['SMA_50'].shift(1) <= df['SMA_200'].shift(1)), True, False)
           df['Death_Cross'] = np.where((df['SMA_50'] < df['SMA_200']) & (df['SMA_50'].shift(1) >= df['SMA_200'].shift(1)), True, False)
-
-          df['up_trend'] = np.where(df['SMA_20'] > df['SMA_50'], True, False) #Op SOLANA sma20 over 50 anders evt #200, 50
-          df['down_trend'] = np.where(df['SMA_50'] > df['SMA_20'], True, False) #50, 200
           df['SMA20_Crossover'] = np.where(df['SMA_20'] > df['SMA_50'], True, False)
           df['SMA50_Crossover'] = np.where(df['SMA_20'] < df['SMA_50'], True, False)
 
