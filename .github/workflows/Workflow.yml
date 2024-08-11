@@ -1,5 +1,4 @@
-name: Manage Data in Repository
-
+name: Workflow Kraken
 on:
   schedule:
     - cron: '58 * * *  *' 
