@@ -192,10 +192,14 @@ class apibot():
         order_number = random.randint(1000, 9999)
         
         #Going long
+        indicators_buy_long = df.loc[last_index, ['SMA20_Crossover', 'SMA_above', 'Bollinger_Breakout_Low']]
+        indicators_sell_long = df.loc[last_index, ['RSI_Overbought']]
+        #Going short
+        indicators_buy_short = df.loc[last_index, ['SMA50_Crossover', 'SMA_below', 'Bollinger_Breakout_High']]
+        indicators_sell_short = df.loc[last_index, ['Bollinger_Breakout_Low']]
+        
         if df.loc[last_index, ['Bullish']].all():
-            indicators_buy = df.loc[last_index, ['SMA20_Crossover', 'SMA_above', 'Bollinger_Breakout_Low']]
-            indicators_sell = df.loc[last_index, ['RSI_Overbought']]
-            if indicators_buy.all():
+            if indicators_buy_long.all():
                 buy_message = f"Koop:\n Positie: Long {last_row['market']} {last_row['close']}"
                 buy_order = {'type': 'Bought', 'strategy': 'Long', 'symbol': last_row['market'],
                                                     'time': str(last_index.to_pydatetime()),
@@ -232,7 +236,7 @@ class apibot():
                     self.update_file(self._file_path, stoploss_order)
                     await self.send_telegram_message(stoploss_message)
 
-                elif indicators_sell.all():                                                               
+                elif indicators_sell_long.all():                                                               
                     if i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
                             float(last_row['close']) >= float(i['closing_price']) * 1.10 and \
                             i['strategy'] == 'Long':
@@ -259,9 +263,7 @@ class apibot():
 
         #Going short
         if df.loc[last_index, ['Bearish']].all():
-            indicators_buy = df.loc[last_index, ['SMA50_Crossover', 'SMA_below', 'Bollinger_Breakout_High']]
-            indicators_sell = df.loc[last_index, ['Bollinger_Breakout_Low']]
-            if indicators_buy.all():
+            if indicators_buy_short.all():
                 buy_message = f"Koop:\n Positie: Short {last_row['market']} {last_row['close']}"
                 buy_order = {'type': 'Bought', 'strategy': 'Short', 'symbol': last_row['market'],
                                                     'time': str(last_index.to_pydatetime()),
@@ -298,7 +300,7 @@ class apibot():
                     self.update_file(self._file_path, stoploss_order)
                     await self.send_telegram_message(stoploss_message)
 
-                elif indicators_sell.all():                                                               
+                elif indicators_sell_short.all():                                                               
                     if i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
                             float(last_row['close']) >= float(i['closing_price']) * 1.10 and \
                             i['strategy'] == 'Short':
