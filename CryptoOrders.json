@@ -1,0 +1,10 @@
+[
+    {
+        "type": "Bought",
+        "strategy": "Short",
+        "symbol": "ICPEUR",
+        "time": "2024-08-12 15:00:00",
+        "closing_price": 6.642,
+        "order": 6329
+    }
+]
