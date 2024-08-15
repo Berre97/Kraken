@@ -22,5 +22,13 @@
         "time": "2024-08-14 13:00:00",
         "closing_price": 0.75906,
         "order": 8981
+    },
+    {
+        "type": "Bought",
+        "strategy": "Short",
+        "symbol": "ICPEUR",
+        "time": "2024-08-15 13:00:00",
+        "closing_price": 6.633,
+        "order": 9489
     }
 ]
