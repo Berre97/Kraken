@@ -236,7 +236,7 @@ class apibot():
                     await self.send_telegram_message(stoploss_message)
 
                 # elif indicators_sell_long.all():                                                               
-                if i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
+                elif i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
                         float(last_row['close']) >= float(i['closing_price']) * 1.10 and \
                         i['strategy'] == 'Long':
                             
@@ -299,7 +299,7 @@ class apibot():
                     await self.send_telegram_message(stoploss_message)
 
                 # elif indicators_sell_short.all():                                                               
-                if i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
+                elif i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
                         float(last_row['close']) >= float(i['closing_price']) * 1.10 and \
                         i['strategy'] == 'Short':
                             
