@@ -216,9 +216,9 @@ class apibot():
         #take profit / Stop loss
         if self.load_data(self._file_path) is not None:
             for i in self.load_data(self._file_path):
-                percentage = (float(last_row['close']) - float(i['closing_price'])) / float(i['closing_price']) * 100
-                percentage = format(percentage, ".2f")
-                self._portfolio += f"Market: {i['symbol']} Aankoopprijs: {i['closing_price']} Percentage: {percentage} Positie: {i['strategy']}\n----------------------------\n"
+                # percentage = (float(last_row['close']) - float(i['closing_price'])) / float(i['closing_price']) * 100
+                # percentage = format(percentage, ".2f")
+                # self._portfolio += f"Market: {i['symbol']} Aankoopprijs: {i['closing_price']} Percentage: {percentage} Positie: {i['strategy']}\n----------------------------\n"
                 
                 if i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
                         float(last_row['close']) <= float(i['closing_price']) * 0.96 and i['strategy'] == 'Long':
@@ -283,9 +283,9 @@ class apibot():
         #take profit / Stop loss
         if self.load_data(self._file_path) is not None:
             for i in self.load_data(self._file_path):
-                percentage = (float(i['closing_price']) - float(last_row['close'])) / float(i['closing_price']) * 100
-                percentage = format(percentage, ".2f")
-                self._portfolio += f"Market: {i['symbol']} Aankoopprijs: {i['closing_price']} Percentage: {percentage} Positie: {i['strategy']}\n----------------------------\n"
+                # percentage = (float(i['closing_price']) - float(last_row['close'])) / float(i['closing_price']) * 100
+                # percentage = format(percentage, ".2f")
+                # self._portfolio += f"Market: {i['symbol']} Aankoopprijs: {i['closing_price']} Percentage: {percentage} Positie: {i['strategy']}\n----------------------------\n"
                 
                 if i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
                         float(last_row['close']) >= float(i['closing_price']) * 1.04 and i['strategy'] == 'Short':
@@ -340,8 +340,6 @@ class apibot():
             df = bot.add_indicators(df)
             data_complete = bot.generate_signals(df)
             await bot.check_signals(data_complete)
-            
-        await self.send_telegram_message(self._portfolio)
 
 if __name__ == '__main__':
     # file_path = 'CryptoOrders.json'
