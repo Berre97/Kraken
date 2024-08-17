@@ -216,7 +216,7 @@ class apibot():
         #take profit / Stop loss
         if self.load_data(self._file_path) is not None:
             for i in self.load_data(self._file_path):
-                percentage = (float(row['close']) - float(i['closing_price'])) / float(i['closing_price']) * 100
+                percentage = (float(last_row['close']) - float(i['closing_price'])) / float(i['closing_price']) * 100
                 percentage = format(percentage, ".2f")
                 portfolio_message += f"Market: {i['symbol']} Aankoopprijs: {i['closing_price']} Percentage: {percentage} Positie: {i['strategy']}\n"
                 
@@ -283,7 +283,7 @@ class apibot():
         #take profit / Stop loss
         if self.load_data(self._file_path) is not None:
             for i in self.load_data(self._file_path):
-                percentage = (float(i['closing_price']) - float(row['close'])) / float(i['closing_price']) * 100
+                percentage = (float(i['closing_price']) - float(last_row['close'])) / float(i['closing_price']) * 100
                 percentage = format(percentage, ".2f")
                 portfolio_message += f"Market: {i['symbol']} Aankoopprijs: {i['closing_price']} Percentage: {percentage} Positie: {i['strategy']}\n"
                 
