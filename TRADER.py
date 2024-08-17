@@ -24,6 +24,7 @@ class apibot():
     def __init__(self, file_path, markets):
         self._markets = markets
         self._file_path = file_path
+        self._portfolio = "Portfolio\n"
 
 
     async def send_telegram_message(self, message):
@@ -183,8 +184,7 @@ class apibot():
     async def check_signals(self, df):
         last_index = df.index[-1]
         last_row = df.iloc[-1]
-        portfolio_message = "Portfolio\n"
-
+        
         print("Laatste data:")
         print(last_row, last_index)
         print('--------------------------------------------------------')
@@ -218,7 +218,7 @@ class apibot():
             for i in self.load_data(self._file_path):
                 percentage = (float(last_row['close']) - float(i['closing_price'])) / float(i['closing_price']) * 100
                 percentage = format(percentage, ".2f")
-                portfolio_message += f"Market: {i['symbol']} Aankoopprijs: {i['closing_price']} Percentage: {percentage} Positie: {i['strategy']}\n"
+                self._portfolio += f"Market: {i['symbol']} Aankoopprijs: {i['closing_price']} Percentage: {percentage} Positie: {i['strategy']}\n----------------------------\n"
                 
                 if i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
                         float(last_row['close']) <= float(i['closing_price']) * 0.96 and i['strategy'] == 'Long':
@@ -285,7 +285,7 @@ class apibot():
             for i in self.load_data(self._file_path):
                 percentage = (float(i['closing_price']) - float(last_row['close'])) / float(i['closing_price']) * 100
                 percentage = format(percentage, ".2f")
-                portfolio_message += f"Market: {i['symbol']} Aankoopprijs: {i['closing_price']} Percentage: {percentage} Positie: {i['strategy']}\n"
+                self._portfolio += f"Market: {i['symbol']} Aankoopprijs: {i['closing_price']} Percentage: {percentage} Positie: {i['strategy']}\n----------------------------\n"
                 
                 if i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
                         float(last_row['close']) >= float(i['closing_price']) * 1.04 and i['strategy'] == 'Short':
@@ -332,21 +332,16 @@ class apibot():
         else:
             print('Geen signalen gevonden')
                         
-        await self.send_telegram_message(portfolio_message)
-
+       
     
     async def main(self, bot):
-        # start_time = datetime.now()
-        # end_time = start_time + timedelta(hours=15)
-
-        # while datetime.now() < end_time:
         for i in self._markets:
             df = bot.get_data(market=i) 
             df = bot.add_indicators(df)
             data_complete = bot.generate_signals(df)
             await bot.check_signals(data_complete)
-
-            # time.sleep(5)
+            
+        await self.send_telegram_message(self._portfolio)
 
 if __name__ == '__main__':
     # file_path = 'CryptoOrders.json'
