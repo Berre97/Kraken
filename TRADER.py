@@ -309,7 +309,7 @@ class apibot():
 
                 # elif indicators_sell_short.all():                                                               
                 elif i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
-                        float(last_row['close']) >= float(i['closing_price']) * 1.10 and \
+                        float(last_row['close']) <= float(i['closing_price']) * 0.90 and \
                         i['strategy'] == 'Short':
                             
                     percentage = (float(i['closing_price']) - float(last_row['close'])) / float(i['closing_price']) * 100
