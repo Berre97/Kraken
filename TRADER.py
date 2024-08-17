@@ -329,13 +329,12 @@ class apibot():
                     print(sell_order)
                     self.update_file(self._file_path, sell_order)
                     await self.send_telegram_message(sell_message)
-                            
-        await self.send_telegram_message(portfolio_message)
-        
         else:
             print('Geen signalen gevonden')
+                        
+        await self.send_telegram_message(portfolio_message)
 
-
+    
     async def main(self, bot):
         # start_time = datetime.now()
         # end_time = start_time + timedelta(hours=15)
