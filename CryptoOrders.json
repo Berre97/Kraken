@@ -72,12 +72,15 @@
         "order": 9667
     },
     {
-        "type": "Bought",
+        "type": "Stoploss",
         "strategy": "Short",
         "symbol": "COTIEUR",
-        "time": "2024-08-17 17:00:00",
-        "closing_price": 0.0723,
-        "order": 4698
+        "time": "2024-08-17 21:00:00",
+        "closing_price": 0.0762,
+        "order": 4698,
+        "aankoopprijs": 0.0723,
+        "aankoopdatum": "2024-08-17 17:00:00",
+        "percentage_loss": "5.39"
     },
     {
         "type": "Bought",
