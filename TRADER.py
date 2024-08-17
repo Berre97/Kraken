@@ -215,9 +215,8 @@ class apibot():
         #take profit / Stop loss
         if self.load_data(self._file_path) is not None:
             for i in self.load_data(self._file_path):
-                stop_limit = float(i['closing_price']) * 0.96
                 if i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
-                        float(last_row['close']) <= float(i['closing_price']) * 0.97 >= stop_limit and i['strategy'] == 'Long':
+                        float(last_row['close']) <= float(i['closing_price']) * 0.94 and i['strategy'] == 'Long':
                                    
                     percentage_loss = (float(i['closing_price']) - float(last_row['close'])) * 100 / float(i['closing_price'])
                     percentage_loss = format(percentage_loss, ".2f")
@@ -279,9 +278,8 @@ class apibot():
         #take profit / Stop loss
         if self.load_data(self._file_path) is not None:
             for i in self.load_data(self._file_path):
-                stop_limit = float(i['closing_price']) * 1.06
                 if i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
-                        float(last_row['close']) >= float(i['closing_price']) * 1.04 <= stop_limit and i['strategy'] == 'Short':
+                        float(last_row['close']) >= float(i['closing_price']) * 1.04 and i['strategy'] == 'Short':
                                     
                     percentage_loss = (float(last_row['close']) - float(i['closing_price'])) * 100 / float(i['closing_price'])
                     percentage_loss = format(percentage_loss, ".2f")
