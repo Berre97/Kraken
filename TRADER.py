@@ -235,28 +235,28 @@ class apibot():
                     self.update_file(self._file_path, stoploss_order)
                     await self.send_telegram_message(stoploss_message)
 
-                elif indicators_sell_long.all():                                                               
-                    if i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
-                            float(last_row['close']) >= float(i['closing_price']) * 1.10 and \
-                            i['strategy'] == 'Long':
-                                
-                        percentage = (float(last_row['close']) - float(i['closing_price'])) / float(i['closing_price']) * 100
-                        percentage = format(percentage, ".2f")
-                        sell_order = {'type': 'Sold', 'symbol': last_row['market'],
-                                                           'order': i['order'],
-                                                           'time': str(last_index.to_pydatetime()),
-                                                           'closing_price': float(last_row['close']),
-                                                           'aankoopprijs': float(i['closing_price']),
-                                                           'aankoopdatum': str(i['time']),
-                                                           'percentage_gain': percentage}
+                # elif indicators_sell_long.all():                                                               
+                if i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
+                        float(last_row['close']) >= float(i['closing_price']) * 1.10 and \
+                        i['strategy'] == 'Long':
+                            
+                    percentage = (float(last_row['close']) - float(i['closing_price'])) / float(i['closing_price']) * 100
+                    percentage = format(percentage, ".2f")
+                    sell_order = {'type': 'Sold', 'symbol': last_row['market'],
+                                                       'order': i['order'],
+                                                       'time': str(last_index.to_pydatetime()),
+                                                       'closing_price': float(last_row['close']),
+                                                       'aankoopprijs': float(i['closing_price']),
+                                                       'aankoopdatum': str(i['time']),
+                                                       'percentage_gain': percentage}
 
-                        sell_message = f"Verkoop:\n {last_row['market']} prijs: {last_row['close']} " \
-                                       f"aankoopkoers: {float(i['closing_price'])}\n " \
-                                       f"percentage gained: {percentage}"
+                    sell_message = f"Verkoop:\n {last_row['market']} prijs: {last_row['close']} " \
+                                   f"aankoopkoers: {float(i['closing_price'])}\n " \
+                                   f"percentage gained: {percentage}"
 
-                        print(sell_order)
-                        self.update_file(self._file_path, sell_order)
-                        await self.send_telegram_message(sell_message)
+                    print(sell_order)
+                    self.update_file(self._file_path, sell_order)
+                    await self.send_telegram_message(sell_message)
 
         
 
@@ -298,28 +298,28 @@ class apibot():
                     self.update_file(self._file_path, stoploss_order)
                     await self.send_telegram_message(stoploss_message)
 
-                elif indicators_sell_short.all():                                                               
-                    if i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
-                            float(last_row['close']) >= float(i['closing_price']) * 1.10 and \
-                            i['strategy'] == 'Short':
-                                
-                        percentage = (float(i['closing_price']) - float(last_row['close'])) / float(i['closing_price']) * 100
-                        percentage = format(percentage, ".2f")
-                        sell_order = {'type': 'Sold', 'symbol': last_row['market'],
-                                                           'order': i['order'],
-                                                           'time': str(last_index.to_pydatetime()),
-                                                           'closing_price': float(last_row['close']),
-                                                           'aankoopprijs': float(i['closing_price']),
-                                                           'aankoopdatum': str(i['time']),
-                                                           'percentage_gain': percentage}
+                # elif indicators_sell_short.all():                                                               
+                if i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
+                        float(last_row['close']) >= float(i['closing_price']) * 1.10 and \
+                        i['strategy'] == 'Short':
+                            
+                    percentage = (float(i['closing_price']) - float(last_row['close'])) / float(i['closing_price']) * 100
+                    percentage = format(percentage, ".2f")
+                    sell_order = {'type': 'Sold', 'symbol': last_row['market'],
+                                                       'order': i['order'],
+                                                       'time': str(last_index.to_pydatetime()),
+                                                       'closing_price': float(last_row['close']),
+                                                       'aankoopprijs': float(i['closing_price']),
+                                                       'aankoopdatum': str(i['time']),
+                                                       'percentage_gain': percentage}
 
-                        sell_message = f"Verkoop:\n {last_row['market']} prijs: {last_row['close']} " \
-                                       f"aankoopkoers: {float(i['closing_price'])}\n " \
-                                       f"percentage gained: {percentage}"
+                    sell_message = f"Verkoop:\n {last_row['market']} prijs: {last_row['close']} " \
+                                   f"aankoopkoers: {float(i['closing_price'])}\n " \
+                                   f"percentage gained: {percentage}"
 
-                        print(sell_order)
-                        self.update_file(self._file_path, sell_order)
-                        await self.send_telegram_message(sell_message)
+                    print(sell_order)
+                    self.update_file(self._file_path, sell_order)
+                    await self.send_telegram_message(sell_message)
 
         else:
             print('Geen verkoopsignalen gevonden')
