@@ -86,5 +86,13 @@
         "time": "2024-08-17 18:00:00",
         "closing_price": 0.68746,
         "order": 8654
+    },
+    {
+        "type": "Bought",
+        "strategy": "Short",
+        "symbol": "JUPEUR",
+        "time": "2024-08-17 18:00:00",
+        "closing_price": 0.68746,
+        "order": 4294
     }
 ]
