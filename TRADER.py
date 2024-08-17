@@ -183,6 +183,7 @@ class apibot():
     async def check_signals(self, df):
         last_index = df.index[-1]
         last_row = df.iloc[-1]
+        portfolio_message = "Portfolio\n"
 
         print("Laatste data:")
         print(last_row, last_index)
@@ -215,9 +216,13 @@ class apibot():
         #take profit / Stop loss
         if self.load_data(self._file_path) is not None:
             for i in self.load_data(self._file_path):
+                percentage = (float(row['close']) - float(i['closing_price'])) / float(i['closing_price']) * 100
+                percentage = format(percentage, ".2f")
+                portfolio_message += f"Market: {i['symbol']} Aankoopprijs: {i['closing_price']} Percentage: {percentage} Positie: {i['strategy']}\n"
+                
                 if i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
                         float(last_row['close']) <= float(i['closing_price']) * 0.96 and i['strategy'] == 'Long':
-                                   
+                            
                     percentage_loss = (float(i['closing_price']) - float(last_row['close'])) * 100 / float(i['closing_price'])
                     percentage_loss = format(percentage_loss, ".2f")
 
@@ -278,6 +283,10 @@ class apibot():
         #take profit / Stop loss
         if self.load_data(self._file_path) is not None:
             for i in self.load_data(self._file_path):
+                percentage = (float(i['closing_price']) - float(row['close'])) / float(i['closing_price']) * 100
+                percentage = format(percentage, ".2f")
+                portfolio_message += f"Market: {i['symbol']} Aankoopprijs: {i['closing_price']} Percentage: {percentage} Positie: {i['strategy']}\n"
+                
                 if i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
                         float(last_row['close']) >= float(i['closing_price']) * 1.04 and i['strategy'] == 'Short':
                                     
@@ -320,9 +329,11 @@ class apibot():
                     print(sell_order)
                     self.update_file(self._file_path, sell_order)
                     await self.send_telegram_message(sell_message)
-
+                            
+        await self.send_telegram_message(portfolio_message)
+        
         else:
-            print('Geen verkoopsignalen gevonden')
+            print('Geen signalen gevonden')
 
 
     async def main(self, bot):
