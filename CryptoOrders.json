@@ -16,12 +16,15 @@
         "order": 3306
     },
     {
-        "type": "Bought",
+        "type": "Sold",
         "strategy": "Short",
         "symbol": "JUPEUR",
-        "time": "2024-08-14 13:00:00",
-        "closing_price": 0.75906,
-        "order": 8981
+        "time": "2024-08-18 05:00:00",
+        "closing_price": 0.6822,
+        "order": 8981,
+        "aankoopprijs": 0.75906,
+        "aankoopdatum": "2024-08-14 13:00:00",
+        "percentage_gain": "10.13"
     },
     {
         "type": "Bought",
