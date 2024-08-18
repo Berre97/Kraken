@@ -86,19 +86,25 @@
         "percentage_loss": "5.39"
     },
     {
-        "type": "Bought",
+        "type": "Stoploss",
         "strategy": "Short",
         "symbol": "JUPEUR",
-        "time": "2024-08-17 18:00:00",
-        "closing_price": 0.68746,
-        "order": 8654
+        "time": "2024-08-18 17:00:00",
+        "closing_price": 0.71505,
+        "order": 8654,
+        "aankoopprijs": 0.68746,
+        "aankoopdatum": "2024-08-17 18:00:00",
+        "percentage_loss": "4.01"
     },
     {
-        "type": "Bought",
+        "type": "Stoploss",
         "strategy": "Short",
         "symbol": "JUPEUR",
-        "time": "2024-08-17 18:00:00",
-        "closing_price": 0.68746,
-        "order": 4294
+        "time": "2024-08-18 17:00:00",
+        "closing_price": 0.71505,
+        "order": 4294,
+        "aankoopprijs": 0.68746,
+        "aankoopdatum": "2024-08-17 18:00:00",
+        "percentage_loss": "4.01"
     }
 ]
