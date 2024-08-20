@@ -106,5 +106,13 @@
         "aankoopprijs": 0.68746,
         "aankoopdatum": "2024-08-17 18:00:00",
         "percentage_loss": "4.01"
+    },
+    {
+        "type": "Bought",
+        "strategy": "Short",
+        "symbol": "ADAEUR",
+        "time": "2024-08-20 02:00:00",
+        "closing_price": 0.30928,
+        "order": 6991
     }
 ]
