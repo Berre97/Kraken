@@ -111,20 +111,26 @@
         "percentage_loss": "4.01"
     },
     {
-        "type": "Bought",
+        "type": "Stoploss",
         "strategy": "Short",
         "symbol": "ADAEUR",
-        "time": "2024-08-20 02:00:00",
-        "closing_price": 0.30928,
-        "order": 6991
+        "time": "2024-08-21 08:00:00",
+        "closing_price": 0.323227,
+        "order": 6991,
+        "aankoopprijs": 0.30928,
+        "aankoopdatum": "2024-08-20 02:00:00",
+        "percentage_loss": "4.51"
     },
     {
-        "type": "Bought",
+        "type": "Stoploss",
         "strategy": "Short",
         "symbol": "ADAEUR",
-        "time": "2024-08-20 03:00:00",
-        "closing_price": 0.309745,
-        "order": 9192
+        "time": "2024-08-21 08:00:00",
+        "closing_price": 0.323227,
+        "order": 9192,
+        "aankoopprijs": 0.309745,
+        "aankoopdatum": "2024-08-20 03:00:00",
+        "percentage_loss": "4.35"
     },
     {
         "type": "Bought",
