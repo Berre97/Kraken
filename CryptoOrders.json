@@ -22,5 +22,13 @@
         "time": "2024-08-21 13:00:00",
         "closing_price": 0.4793,
         "order": 7937
+    },
+    {
+        "type": "Bought",
+        "strategy": "Short",
+        "symbol": "SOLEUR",
+        "time": "2024-08-21 15:00:00",
+        "closing_price": 125.67,
+        "order": 5930
     }
 ]
