@@ -51,12 +51,15 @@
         "order": 3474
     },
     {
-        "type": "Bought",
+        "type": "Stoploss",
         "strategy": "Short",
         "symbol": "ADAEUR",
-        "time": "2024-08-17 13:00:00",
-        "closing_price": 0.303243,
-        "order": 1325
+        "time": "2024-08-21 05:00:00",
+        "closing_price": 0.319449,
+        "order": 1325,
+        "aankoopprijs": 0.303243,
+        "aankoopdatum": "2024-08-17 13:00:00",
+        "percentage_loss": "5.34"
     },
     {
         "type": "Bought",
