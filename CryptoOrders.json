@@ -1,11 +1,14 @@
 [
     {
-        "type": "Bought",
+        "type": "Stoploss",
         "strategy": "Short",
         "symbol": "ARBEUR",
-        "time": "2024-08-21 13:00:00",
-        "closing_price": 0.4793,
-        "order": 7817
+        "time": "2024-08-22 07:00:00",
+        "closing_price": 0.5037,
+        "order": 7817,
+        "aankoopprijs": 0.4793,
+        "aankoopdatum": "2024-08-21 13:00:00",
+        "percentage_loss": "5.09"
     },
     {
         "type": "Bought",
@@ -16,12 +19,15 @@
         "order": 7982
     },
     {
-        "type": "Bought",
+        "type": "Stoploss",
         "strategy": "Short",
         "symbol": "ARBEUR",
-        "time": "2024-08-21 13:00:00",
-        "closing_price": 0.4793,
-        "order": 7937
+        "time": "2024-08-22 07:00:00",
+        "closing_price": 0.5037,
+        "order": 7937,
+        "aankoopprijs": 0.4793,
+        "aankoopdatum": "2024-08-21 13:00:00",
+        "percentage_loss": "5.09"
     },
     {
         "type": "Bought",
