@@ -11,12 +11,15 @@
         "percentage_loss": "5.09"
     },
     {
-        "type": "Bought",
+        "type": "Stoploss",
         "strategy": "Short",
         "symbol": "SOLEUR",
-        "time": "2024-08-21 13:00:00",
-        "closing_price": 125.72,
-        "order": 7982
+        "time": "2024-08-23 18:00:00",
+        "closing_price": 132.92,
+        "order": 7982,
+        "aankoopprijs": 125.72,
+        "aankoopdatum": "2024-08-21 13:00:00",
+        "percentage_loss": "5.73"
     },
     {
         "type": "Stoploss",
@@ -30,19 +33,25 @@
         "percentage_loss": "5.09"
     },
     {
-        "type": "Bought",
+        "type": "Stoploss",
         "strategy": "Short",
         "symbol": "SOLEUR",
-        "time": "2024-08-21 15:00:00",
-        "closing_price": 125.67,
-        "order": 5930
+        "time": "2024-08-23 18:00:00",
+        "closing_price": 132.92,
+        "order": 5930,
+        "aankoopprijs": 125.67,
+        "aankoopdatum": "2024-08-21 15:00:00",
+        "percentage_loss": "5.77"
     },
     {
-        "type": "Bought",
+        "type": "Stoploss",
         "strategy": "Short",
         "symbol": "SOLEUR",
-        "time": "2024-08-21 16:00:00",
-        "closing_price": 125.65,
-        "order": 1220
+        "time": "2024-08-23 18:00:00",
+        "closing_price": 132.92,
+        "order": 1220,
+        "aankoopprijs": 125.65,
+        "aankoopdatum": "2024-08-21 16:00:00",
+        "percentage_loss": "5.79"
     }
 ]
