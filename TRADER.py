@@ -107,31 +107,26 @@ class apibot():
           break
 
         else:
-          # Golden Cross / Death Cross
-          df['Golden_Cross'] = np.where((df['SMA_50'] > df['SMA_200']) & (df['SMA_50'].shift(1) <= df['SMA_200'].shift(1)), True, False)
-          df['Death_Cross'] = np.where((df['SMA_50'] < df['SMA_200']) & (df['SMA_50'].shift(1) >= df['SMA_200'].shift(1)), True, False)
-          df['SMA20_Crossover'] = np.where(df['SMA_20'] > df['SMA_50'], True, False)
-          df['SMA50_Crossover'] = np.where(df['SMA_20'] < df['SMA_50'], True, False)
 
           # RSI Overbought / Oversold
           df['RSI_Overbought'] = np.where(df['RSI'] >= 60, True, False)
-          df['RSI_Oversold'] = np.where(df['RSI'] <= 30, True, False)
+          df['RSI_Oversold'] = np.where(df['RSI'] <= 35, True, False)
             
-          df['RSI_Overbought_MACD'] = np.where(df['RSI'] >= 65, True, False)
-          df['RSI_Oversold_MACD'] = np.where(df['RSI'] <= 45, True, False)
-
           # MACD Crossovers
           df['MACD_Bullish'] = np.where((df['MACD'] > df['MACD_signal']) & (df['MACD'].shift(1) <= df['MACD_signal'].shift(1)), True, False)
           df['MACD_Bearish'] = np.where((df['MACD'] < df['MACD_signal']) & (df['MACD'].shift(1) >= df['MACD_signal'].shift(1)), True, False)
-            
-          df['Bullish'] = np.where(df['SMA_20'] > df['SMA_200'], True, False)
-          df['Bearish'] = np.where(df['SMA_200'] > df['SMA_20'], True, False)
       
-          
           # Bollinger Bands Cross
           df['Bollinger_Breakout_High'] = np.where((df['close'] > df['Bollinger_High']), True, False)
           df['Bollinger_Breakout_Low'] = np.where((df['close'] < df['Bollinger_Low']), True, False)
 
+          df['EMA_above'] = (df['EMA_8_above_EMA_13'] &
+                             df['EMA_13_above_EMA_21'] &
+                             df['EMA_21_above_EMA_55']).rolling(window=20).sum() == 20
+
+          df['EMA_below'] = (~df['EMA_8_above_EMA_13'] &
+                             ~df['EMA_13_above_EMA_21'] &
+                             ~df['EMA_21_above_EMA_55']).rolling(window=20).sum() == 20
 
           return df
 
@@ -141,8 +136,6 @@ class apibot():
         df['SMA_50'] = ta.trend.sma_indicator(df['close'], window=50)
         df['SMA_20'] = ta.trend.sma_indicator(df['close'], window=20)
         df['SMA_200'] = ta.trend.sma_indicator(df['close'], window=200)
-        df['EMA_50'] = ta.trend.ema_indicator(df['close'], window=50)
-        df['EMA_200'] = ta.trend.ema_indicator(df['close'], window=200)
 
         # Relatieve sterkte-index (RSI)
         df['RSI'] = ta.momentum.rsi(df['close'], window=14)
@@ -156,28 +149,29 @@ class apibot():
         df['Bollinger_High'] = bollinger.bollinger_hband()
         df['Bollinger_Low'] = bollinger.bollinger_lband()
 
-        # Commodity Channel Index (CCI)
-        df['CCI'] = ta.trend.cci(df['high'], df['low'], df['close'], window=20)
+        df['EMA_8'] = ta.trend.ema_indicator(df['close'], window=8)
+        df['EMA_13'] = ta.trend.ema_indicator(df['close'], window=13)
+        df['EMA_21'] = ta.trend.ema_indicator(df['close'], window=21)
+        df['EMA_55'] = ta.trend.ema_indicator(df['close'], window=55)
 
-        # Stochastische Oscillator
-        stoch = ta.momentum.stoch(df['high'], df['low'], df['close'], window=14, smooth_window=3)
-        df['Stoch_K'] = stoch
-        df['Stoch_D'] = ta.momentum.stoch_signal(df['high'], df['low'], df['close'], window=14, smooth_window=3)
-        df['SMA_20_above_SMA_200'] = df[['SMA_20', 'SMA_200']].apply(lambda row: row['SMA_20'] > row['SMA_200'], axis=1)
-        df['SMA_above'] = df['SMA_20_above_SMA_200'].rolling(window=10).sum() == 10
-        
-        df['SMA_200_above_SMA_20'] = df[['SMA_20', 'SMA_200']].apply(lambda row: row['SMA_20'] < row['SMA_200'], axis=1)
-        df['SMA_below'] = df['SMA_200_above_SMA_20'].rolling(window=10).sum() == 10
+        df['EMA_8_above_EMA_13'] = df['EMA_8'] > df['EMA_13']
+        df['EMA_13_above_EMA_21'] = df['EMA_13'] > df['EMA_21']
+        df['EMA_21_above_EMA_55'] = df['EMA_21'] > df['EMA_55']
 
-        # On Balance Volume (OBV)
-        df['OBV'] = ta.volume.on_balance_volume(df['close'], df['volume'])
+        df['EMA_above'] = (df['EMA_8_above_EMA_13'] &
+                           df['EMA_13_above_EMA_21'] &
+                           df['EMA_21_above_EMA_55']).rolling(window=20).sum() == 20
 
-        # Ichimoku Cloud
-        ichimoku = ta.trend.IchimokuIndicator(df['high'], df['low'], window1=9, window2=26, window3=52)
-        df['Ichimoku_Conversion'] = ichimoku.ichimoku_conversion_line()
-        df['Ichimoku_Base'] = ichimoku.ichimoku_base_line()
-        df['Ichimoku_A'] = ichimoku.ichimoku_a()
-        df['Ichimoku_B'] = ichimoku.ichimoku_b()
+        df['EMA_below'] = (~df['EMA_8_above_EMA_13'] &
+                           ~df['EMA_13_above_EMA_21'] &
+                           ~df['EMA_21_above_EMA_55']).rolling(window=20).sum() == 20
+
+
+        df['volume_MA'] = df['volume'].rolling(window=20).mean()
+        df['Bullish'] = (df['EMA_8'] > df['EMA_13']) & (df['EMA_13'] > df['EMA_21']) & (df['EMA_21'] > df['EMA_55'])
+        df['Bearish'] = (df['EMA_8'] < df['EMA_13']) & (df['EMA_13'] < df['EMA_21']) & (df['EMA_21'] < df['EMA_55'])
+        df['Buy Signal Long'] = df['EMA_above'] & (df['volume'] > df['volume_MA'])
+        df['Buy Signal Short'] = df['EMA_below'] & (df['volume'] > df['volume_MA'])
 
         return df
 
@@ -194,13 +188,11 @@ class apibot():
         order_number = random.randint(1000, 9999)
         
         #Going long
-        indicators_buy_long = df.loc[last_index, ['SMA20_Crossover', 'SMA_above', 'Bollinger_Breakout_High', 'RSI_Oversold']]
-        # indicators_sell_long = df.loc[last_index, ['RSI_Overbought']]
-        
+        indicators_buy_long = df.loc[last_index, ['Buy Signal Long']]
+
         #Going short
-        indicators_buy_short = df.loc[last_index, ['SMA50_Crossover', 'SMA_below', 'Bollinger_Breakout_Low']]
-        # indicators_sell_short = df.loc[last_index, ['Bollinger_Breakout_Low']]
-        
+        indicators_buy_short = df.loc[last_index, ['Buy Signal Short', 'RSI_Oversold']]
+      
         if df.loc[last_index, ['Bullish']].all():
             if indicators_buy_long.all():
                 buy_message = f"Koop:\n Positie: Long\n Market: {last_row['market']} Prijs: {last_row['close']}"
@@ -240,7 +232,7 @@ class apibot():
 
                 # elif indicators_sell_long.all():                                                               
                 elif i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
-                        float(last_row['close']) >= float(i['closing_price']) * 1.08 and \
+                        float(last_row['close']) >= float(i['closing_price']) * 1.05 and \
                         i['strategy'] == 'Long':
                             
                     percentage = (float(last_row['close']) - float(i['closing_price'])) / float(i['closing_price']) * 100
@@ -281,10 +273,6 @@ class apibot():
         #take profit / Stop loss
         if self.load_data(self._file_path) is not None:
             for i in self.load_data(self._file_path):
-                # percentage = (float(i['closing_price']) - float(last_row['close'])) / float(i['closing_price']) * 100
-                # percentage = format(percentage, ".2f")
-                # self._portfolio += f"Market: {i['symbol']} Aankoopprijs: {i['closing_price']} Percentage: {percentage} Positie: {i['strategy']}\n----------------------------\n"
-                
                 if i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
                         float(last_row['close']) >= float(i['closing_price']) * 1.05 and i['strategy'] == 'Short':
                                     
@@ -307,7 +295,7 @@ class apibot():
 
                 # elif indicators_sell_short.all():                                                               
                 elif i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
-                        float(last_row['close']) <= float(i['closing_price']) * 0.92 and \
+                        float(last_row['close']) <= float(i['closing_price']) * 0.95 and \
                         i['strategy'] == 'Short':
                             
                     percentage = (float(i['closing_price']) - float(last_row['close'])) / float(i['closing_price']) * 100
@@ -342,7 +330,7 @@ class apibot():
 if __name__ == '__main__':
     # file_path = 'CryptoOrders.json'
     file_path = os.getenv('FILE_PATH')
-    bot = apibot(file_path=file_path, markets=['ARBEUR', 'MKREUR', 'INJEUR', 'SOLEUR', 'ADAEUR', 'MNTEUR', 'STXEUR', 'ARBEUR'])
+    bot = apibot(file_path=file_path, markets=['ARBEUR', 'INJEUR', 'SOLEUR', 'ADAEUR', 'MNTEUR', 'STXEUR'])
     asyncio.run(bot.main(bot))
 
 
