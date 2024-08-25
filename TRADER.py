@@ -193,18 +193,17 @@ class apibot():
         #Going short
         indicators_buy_short = df.loc[last_index, ['Buy Signal Short', 'RSI_Oversold']]
       
-        if df.loc[last_index, ['Bullish']].all():
-            if indicators_buy_long.all():
-                buy_message = f"Koop:\n Positie: Long\n Market: {last_row['market']} Prijs: {last_row['close']}"
-                buy_order = {'type': 'Bought', 'strategy': 'Long', 'symbol': last_row['market'],
-                                                    'time': str(last_index.to_pydatetime()),
-                                                    'closing_price': float(last_row['close']),
-                                                    'order': order_number}
+        if indicators_buy_long.all():
+            buy_message = f"Koop:\n Positie: Long\n Market: {last_row['market']} Prijs: {last_row['close']}"
+            buy_order = {'type': 'Bought', 'strategy': 'Long', 'symbol': last_row['market'],
+                                                'time': str(last_index.to_pydatetime()),
+                                                'closing_price': float(last_row['close']),
+                                                'order': order_number}
 
-      
-                print(buy_order)
-                self.update_file(self._file_path, buy_order)
-                await self.send_telegram_message(buy_message)
+  
+            print(buy_order)
+            self.update_file(self._file_path, buy_order)
+            await self.send_telegram_message(buy_message)
 
         
         #take profit / Stop loss
@@ -230,10 +229,10 @@ class apibot():
                     self.update_file(self._file_path, stoploss_order)
                     await self.send_telegram_message(stoploss_message)
 
-                # elif indicators_sell_long.all():                                                               
+                                                                             
                 elif i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
                         float(last_row['close']) >= float(i['closing_price']) * 1.05 and \
-                        i['strategy'] == 'Long':
+                        i['strategy'] == 'Long' and df['Buy Signal Long'].all() == False:
                             
                     percentage = (float(last_row['close']) - float(i['closing_price'])) / float(i['closing_price']) * 100
                     percentage = format(percentage, ".2f")
@@ -296,7 +295,7 @@ class apibot():
                 # elif indicators_sell_short.all():                                                               
                 elif i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
                         float(last_row['close']) <= float(i['closing_price']) * 0.95 and \
-                        i['strategy'] == 'Short':
+                        i['strategy'] == 'Short' and df['Buy Signal Short'].all() == False:
                             
                     percentage = (float(i['closing_price']) - float(last_row['close'])) / float(i['closing_price']) * 100
                     percentage = format(percentage, ".2f")
