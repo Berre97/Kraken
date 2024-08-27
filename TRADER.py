@@ -73,13 +73,14 @@ class apibot():
                     i.update(order)
                     
         elif order['type'] == 'Bought':
-            for i in data:
-                if 'last_update' in i.keys() and order['order'] == i['order']:
-                    i.update(order)
+            if 'last_update' in order.keys():
+                for i in data:
+                    if order['order'] == i['order']:
+                        i.update(order)
+            else:
+                data.append(order)
 
-                else:
-                    data.append(order)
-
+        
         with open(file_path, 'w') as f:
             json.dump(data, f, indent=4)
 
@@ -188,10 +189,7 @@ class apibot():
         print("Laatste data:")
         print(last_row, last_index)
         print('--------------------------------------------------------')
-
-        
-        order_number = random.randint(1000, 9999)
-        
+ 
         #Going long
         indicators_buy_long = df.loc[last_index, ['Buy Signal Long']]
 
@@ -259,7 +257,6 @@ class apibot():
                                    f"aankoopkoers: {float(i['closing_price'])}\n " \
                                    f"percentage gained: {percentage}"
 
-                        print(update_order)
                         self.update_file(self._file_path, update_order)
                         await self.send_telegram_message(update_message)      
       
@@ -326,7 +323,6 @@ class apibot():
                                    f"aankoopkoers: {float(i['closing_price'])}\n " \
                                    f"percentage gained: {percentage}"
                 
-                        print(update_order)
                         self.update_file(self._file_path, update_order)
                         await self.send_telegram_message(update_message)
                             
@@ -336,6 +332,7 @@ class apibot():
 
         #Going long
         if indicators_buy_long.all():
+            order_number = random.randint(1000, 9999)
             buy_message = f"Koop:\n Positie: Long\n Market: {last_row['market']} Prijs: {last_row['close']}"
             buy_order = {'type': 'Bought', 'strategy': 'Long', 'symbol': last_row['market'],
                                                 'time': str(last_index.to_pydatetime()),
@@ -352,6 +349,7 @@ class apibot():
 
         #Going short
         if indicators_buy_short.all():
+            order_number = random.randint(1000, 9999)
             buy_message = f"Koop:\n Positie: Short\n Market: {last_row['market']} Prijs: {last_row['close']}"
             buy_order = {'type': 'Bought', 'strategy': 'Short', 'symbol': last_row['market'],
                                                 'time': str(last_index.to_pydatetime()),
