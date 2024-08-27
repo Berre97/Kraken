@@ -247,13 +247,13 @@ class apibot():
                     else:
                         percentage = (float(last_row['close']) - float(i['closing_price'])) / float(i['closing_price']) * 100
                         percentage = format(percentage, ".2f")
-                        update_order = {'type': 'Update', 'symbol': last_row['market'],
+                        update_order = {'type': 'Bought', 'symbol': last_row['market'],
                                                        'order': i['order'],
                                                        'last_update': str(last_index.to_pydatetime()),
                                                        'closing_price': float(last_row['close']),
                                                        'aankoopprijs': float(i['closing_price']),
                                                        'aankoopdatum': str(i['time']),
-                                                       'percentage_gain': percentage}
+                                                       'percentage_gained': percentage}
 
                         update_message = f"Update:\n {last_row['market']} prijs: {last_row['close']} " \
                                    f"aankoopkoers: {float(i['closing_price'])}\n " \
@@ -314,7 +314,7 @@ class apibot():
                     else:
                         percentage = (float(i['closing_price']) - float(last_row['close'])) / float(i['closing_price']) * 100
                         percentage = format(percentage, ".2f")
-                        update_order = {'type': 'Update', 'symbol': last_row['market'],
+                        update_order = {'type': 'Bought', 'symbol': last_row['market'],
                                                        'order': i['order'],
                                                        'last_update': str(last_index.to_pydatetime()),
                                                        'closing_price': float(last_row['close']),
