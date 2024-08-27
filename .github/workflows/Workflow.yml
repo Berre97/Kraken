@@ -31,7 +31,7 @@ jobs:
       - name: Delay execution
         run: |
           echo "Waiting for 5 minutes..."
-          Start-Sleep -Seconds 240
+          Start-Sleep -Seconds 60 #240
         shell: pwsh
         
       - name: Run script
