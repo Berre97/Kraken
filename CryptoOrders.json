@@ -14,5 +14,21 @@
         "time": "2024-08-27 10:00:00",
         "closing_price": 0.5088,
         "order": 1403
+    },
+    {
+        "type": "Bought",
+        "strategy": "Short",
+        "symbol": "ARBEUR",
+        "time": "2024-08-27 11:00:00",
+        "closing_price": 0.5,
+        "order": 8262
+    },
+    {
+        "type": "Bought",
+        "strategy": "Short",
+        "symbol": "ADAEUR",
+        "time": "2024-08-27 11:00:00",
+        "closing_price": 0.323619,
+        "order": 7409
     }
 ]
