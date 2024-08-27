@@ -257,11 +257,7 @@ class apibot():
                                    f"aankoopkoers: {float(i['closing_price'])}\n " \
                                    f"percentage gained: {percentage}"
 
-                        self.update_file(self._file_path, update_order)
-                        await self.send_telegram_message(update_message)      
-      
-                else:
-                    print('Geen long stoploss of verkoopsignalen gevonden')     
+                        self.update_file(self._file_path, update_order)     
 
                 
                 if i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
@@ -324,10 +320,7 @@ class apibot():
                                    f"percentage gained: {percentage}"
                 
                         self.update_file(self._file_path, update_order)
-                        await self.send_telegram_message(update_message)
-                            
-                else:
-                    print('Geen short stoploss of verkoopsignalen gevonden')
+                        
                     
 
         #Going long
