@@ -71,9 +71,14 @@ class apibot():
             for i in data:
                 if i['order'] == order['order']:
                     i.update(order)
+                    
+        elif order['type'] == 'Bought':
+            for i in data:
+                if 'last_update' in i.keys() and order['order'] == i['order']:
+                    i.update(order)
 
-        else:
-            data.append(order)
+                else:
+                    data.append(order)
 
         with open(file_path, 'w') as f:
             json.dump(data, f, indent=4)
@@ -192,18 +197,6 @@ class apibot():
 
         #Going short
         indicators_buy_short = df.loc[last_index, ['Buy Signal Short', 'RSI_Oversold']]
-      
-        if indicators_buy_long.all():
-            buy_message = f"Koop:\n Positie: Long\n Market: {last_row['market']} Prijs: {last_row['close']}"
-            buy_order = {'type': 'Bought', 'strategy': 'Long', 'symbol': last_row['market'],
-                                                'time': str(last_index.to_pydatetime()),
-                                                'closing_price': float(last_row['close']),
-                                                'order': order_number}
-
-  
-            print(buy_order)
-            self.update_file(self._file_path, buy_order)
-            await self.send_telegram_message(buy_message)
 
         
         #take profit / Stop loss
@@ -228,50 +221,52 @@ class apibot():
                     print(stoploss_order)
                     self.update_file(self._file_path, stoploss_order)
                     await self.send_telegram_message(stoploss_message)
+                                                                        
+                elif i['type'] == 'Bought' and i['symbol'] == last_row['market'] and i['strategy'] == 'Long':
+                    if float(last_row['close']) >= float(i['closing_price']) * 1.05 and i['strategy'] == 'Long' and df['Buy Signal Long'].all() == False:
+         
+                       percentage = (float(last_row['close']) - float(i['closing_price'])) / float(i['closing_price']) * 100
+                       percentage = format(percentage, ".2f")
+                       sell_order = {'type': 'Sold', 'symbol': last_row['market'],
+                                                         'order': i['order'],
+                                                         'time': str(last_index.to_pydatetime()),
+                                                         'closing_price': float(last_row['close']),
+                                                         'aankoopprijs': float(i['closing_price']),
+                                                         'aankoopdatum': str(i['time']),
+                                                         'percentage_gained': percentage}
 
-                                                                             
-                elif i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
-                        float(last_row['close']) >= float(i['closing_price']) * 1.05 and \
-                        i['strategy'] == 'Long' and df['Buy Signal Long'].all() == False:
-                            
-                    percentage = (float(last_row['close']) - float(i['closing_price'])) / float(i['closing_price']) * 100
-                    percentage = format(percentage, ".2f")
-                    sell_order = {'type': 'Sold', 'symbol': last_row['market'],
+                       sell_message = f"Verkoop:\n {last_row['market']} prijs: {last_row['close']} " \
+                                      f"aankoopkoers: {float(i['closing_price'])}\n " \
+                                      f"percentage gained: {percentage}"
+
+                       print(sell_order)
+                       self.update_file(self._file_path, sell_order)
+                       await self.send_telegram_message(sell_message)
+
+                    
+                    else:
+                        percentage = (float(last_row['close']) - float(i['closing_price'])) / float(i['closing_price']) * 100
+                        percentage = format(percentage, ".2f")
+                        update_order = {'type': 'Update', 'symbol': last_row['market'],
                                                        'order': i['order'],
-                                                       'time': str(last_index.to_pydatetime()),
+                                                       'last_update': str(last_index.to_pydatetime()),
                                                        'closing_price': float(last_row['close']),
                                                        'aankoopprijs': float(i['closing_price']),
                                                        'aankoopdatum': str(i['time']),
                                                        'percentage_gain': percentage}
 
-                    sell_message = f"Verkoop:\n {last_row['market']} prijs: {last_row['close']} " \
+                        update_message = f"Update:\n {last_row['market']} prijs: {last_row['close']} " \
                                    f"aankoopkoers: {float(i['closing_price'])}\n " \
                                    f"percentage gained: {percentage}"
 
-                    print(sell_order)
-                    self.update_file(self._file_path, sell_order)
-                    await self.send_telegram_message(sell_message)
-
-        
-
-        #Going short
-        if df.loc[last_index, ['Bearish']].all():
-            if indicators_buy_short.all():
-                buy_message = f"Koop:\n Positie: Short\n Market: {last_row['market']} Prijs: {last_row['close']}"
-                buy_order = {'type': 'Bought', 'strategy': 'Short', 'symbol': last_row['market'],
-                                                    'time': str(last_index.to_pydatetime()),
-                                                    'closing_price': float(last_row['close']),
-                                                    'order': order_number}
-
+                        print(update_order)
+                        self.update_file(self._file_path, update_order)
+                        await self.send_telegram_message(update_message)      
       
-                print(buy_order)
-                self.update_file(self._file_path, buy_order)
-                await self.send_telegram_message(buy_message)
+                else:
+                    print('Geen long stoploss of verkoopsignalen gevonden')     
 
-        
-        #take profit / Stop loss
-        if self.load_data(self._file_path) is not None:
-            for i in self.load_data(self._file_path):
+                
                 if i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
                         float(last_row['close']) >= float(i['closing_price']) * 1.05 and i['strategy'] == 'Short':
                                     
@@ -292,32 +287,85 @@ class apibot():
                     self.update_file(self._file_path, stoploss_order)
                     await self.send_telegram_message(stoploss_message)
 
-                # elif indicators_sell_short.all():                                                               
-                elif i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
-                        float(last_row['close']) <= float(i['closing_price']) * 0.95 and \
+                                                                             
+                elif i['type'] == 'Bought' and i['symbol'] == last_row['market'] and i['strategy'] == 'Short':
+                    if float(last_row['close']) <= float(i['closing_price']) * 0.95 and \
                         i['strategy'] == 'Short' and df['Buy Signal Short'].all() == False:
                             
-                    percentage = (float(i['closing_price']) - float(last_row['close'])) / float(i['closing_price']) * 100
-                    percentage = format(percentage, ".2f")
-                    sell_order = {'type': 'Sold', 'symbol': last_row['market'],
+                        percentage = (float(i['closing_price']) - float(last_row['close'])) / float(i['closing_price']) * 100
+                        percentage = format(percentage, ".2f")
+                        sell_order = {'type': 'Sold', 'symbol': last_row['market'],
                                                        'order': i['order'],
                                                        'time': str(last_index.to_pydatetime()),
                                                        'closing_price': float(last_row['close']),
                                                        'aankoopprijs': float(i['closing_price']),
                                                        'aankoopdatum': str(i['time']),
-                                                       'percentage_gain': percentage}
+                                                       'percentage_gained': percentage}
 
-                    sell_message = f"Verkocht:\n Market: {last_row['market']} Prijs: {last_row['close']} " \
+                        sell_message = f"Verkocht:\n Market: {last_row['market']} Prijs: {last_row['close']} " \
                                    f"aankoopkoers: {float(i['closing_price'])}\n " \
                                    f"percentage gained: {percentage}"
 
-                    print(sell_order)
-                    self.update_file(self._file_path, sell_order)
-                    await self.send_telegram_message(sell_message)
+                        print(sell_order)
+                        self.update_file(self._file_path, sell_order)
+                        await self.send_telegram_message(sell_message)
+
+                    
+                    else:
+                        percentage = (float(i['closing_price']) - float(last_row['close'])) / float(i['closing_price']) * 100
+                        percentage = format(percentage, ".2f")
+                        update_order = {'type': 'Update', 'symbol': last_row['market'],
+                                                       'order': i['order'],
+                                                       'last_update': str(last_index.to_pydatetime()),
+                                                       'closing_price': float(last_row['close']),
+                                                       'aankoopprijs': float(i['closing_price']),
+                                                       'aankoopdatum': str(i['time']),
+                                                       'percentage_gain': percentage}
+
+                        update_message = f"Update:\n {last_row['market']} prijs: {last_row['close']} " \
+                                   f"aankoopkoers: {float(i['closing_price'])}\n " \
+                                   f"percentage gained: {percentage}"
+                
+                        print(update_order)
+                        self.update_file(self._file_path, update_order)
+                        await self.send_telegram_message(update_message)
+                            
+                else:
+                    print('Geen short stoploss of verkoopsignalen gevonden')
+                    
+
+        #Going long
+        if indicators_buy_long.all():
+            buy_message = f"Koop:\n Positie: Long\n Market: {last_row['market']} Prijs: {last_row['close']}"
+            buy_order = {'type': 'Bought', 'strategy': 'Long', 'symbol': last_row['market'],
+                                                'time': str(last_index.to_pydatetime()),
+                                                'closing_price': float(last_row['close']),
+                                                'order': order_number}
+
+  
+            print(buy_order)
+            self.update_file(self._file_path, buy_order)
+            await self.send_telegram_message(buy_message)
+
         else:
-            print('Geen signalen gevonden')
-                        
-       
+            print('Geen long koopsignalen gevonden')
+
+        #Going short
+        if indicators_buy_short.all():
+            buy_message = f"Koop:\n Positie: Short\n Market: {last_row['market']} Prijs: {last_row['close']}"
+            buy_order = {'type': 'Bought', 'strategy': 'Short', 'symbol': last_row['market'],
+                                                'time': str(last_index.to_pydatetime()),
+                                                'closing_price': float(last_row['close']),
+                                                'order': order_number}
+
+      
+            print(buy_order)
+            self.update_file(self._file_path, buy_order)
+            await self.send_telegram_message(buy_message)
+            
+        else:
+            print('Geen short signalen gevonden')
+   
     
     async def main(self, bot):
         for i in self._markets:
