@@ -4,288 +4,288 @@
         "strategy": "Short",
         "symbol": "ADAEUR",
         "time": "2024-08-27 00:00:00",
-        "closing_price": 0.311458,
+        "closing_price": 0.316335,
         "order": 6577,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.311458,
         "aankoopdatum": "2024-08-27 00:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-1.57"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "ARBEUR",
         "time": "2024-08-27 10:00:00",
-        "closing_price": 0.4697,
+        "closing_price": 0.4746,
         "order": 1403,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.4697,
         "aankoopdatum": "2024-08-27 10:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-1.04"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "ARBEUR",
         "time": "2024-08-27 11:00:00",
-        "closing_price": 0.4697,
+        "closing_price": 0.4746,
         "order": 8262,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.4697,
         "aankoopdatum": "2024-08-27 11:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-1.04"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "ADAEUR",
         "time": "2024-08-27 11:00:00",
-        "closing_price": 0.311458,
+        "closing_price": 0.316335,
         "order": 7409,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.311458,
         "aankoopdatum": "2024-08-27 11:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-1.57"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "ARBEUR",
         "time": "2024-08-27 12:00:00",
-        "closing_price": 0.4697,
+        "closing_price": 0.4746,
         "order": 1242,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.4697,
         "aankoopdatum": "2024-08-27 12:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-1.04"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "ARBEUR",
         "time": "2024-08-27 13:00:00",
-        "closing_price": 0.4697,
+        "closing_price": 0.4746,
         "order": 2740,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.4697,
         "aankoopdatum": "2024-08-27 13:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-1.04"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "ARBEUR",
         "time": "2024-08-27 14:00:00",
-        "closing_price": 0.4697,
+        "closing_price": 0.4746,
         "order": 6494,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.4697,
         "aankoopdatum": "2024-08-27 14:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-1.04"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "INJEUR",
         "time": "2024-08-27 14:00:00",
-        "closing_price": 16.658,
+        "closing_price": 17.13,
         "order": 2109,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 16.658,
         "aankoopdatum": "2024-08-27 14:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-2.83"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "ARBEUR",
         "time": "2024-08-27 15:00:00",
-        "closing_price": 0.4697,
+        "closing_price": 0.4746,
         "order": 6465,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.4697,
         "aankoopdatum": "2024-08-27 15:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-1.04"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "ARBEUR",
         "time": "2024-08-27 16:00:00",
-        "closing_price": 0.4697,
+        "closing_price": 0.4746,
         "order": 8684,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.4697,
         "aankoopdatum": "2024-08-27 16:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-1.04"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "INJEUR",
         "time": "2024-08-27 16:00:00",
-        "closing_price": 16.658,
+        "closing_price": 17.13,
         "order": 1468,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 16.658,
         "aankoopdatum": "2024-08-27 16:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-2.83"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "ARBEUR",
         "time": "2024-08-27 17:00:00",
-        "closing_price": 0.4697,
+        "closing_price": 0.4746,
         "order": 3912,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.4697,
         "aankoopdatum": "2024-08-27 17:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-1.04"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "ARBEUR",
         "time": "2024-08-27 18:00:00",
-        "closing_price": 0.4697,
+        "closing_price": 0.4746,
         "order": 7265,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.4697,
         "aankoopdatum": "2024-08-27 18:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-1.04"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "ARBEUR",
         "time": "2024-08-27 19:00:00",
-        "closing_price": 0.4697,
+        "closing_price": 0.4746,
         "order": 9660,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.4697,
         "aankoopdatum": "2024-08-27 19:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-1.04"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "ARBEUR",
         "time": "2024-08-27 20:00:00",
-        "closing_price": 0.4697,
+        "closing_price": 0.4746,
         "order": 2084,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.4697,
         "aankoopdatum": "2024-08-27 20:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-1.04"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "ARBEUR",
         "time": "2024-08-27 21:00:00",
-        "closing_price": 0.4697,
+        "closing_price": 0.4746,
         "order": 8586,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.4697,
         "aankoopdatum": "2024-08-27 21:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-1.04"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "ARBEUR",
         "time": "2024-08-27 22:00:00",
-        "closing_price": 0.4697,
+        "closing_price": 0.4746,
         "order": 7522,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.4697,
         "aankoopdatum": "2024-08-27 22:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-1.04"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "ADAEUR",
         "time": "2024-08-27 22:00:00",
-        "closing_price": 0.311458,
+        "closing_price": 0.316335,
         "order": 8787,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.311458,
         "aankoopdatum": "2024-08-27 22:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-1.57"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "ARBEUR",
         "time": "2024-08-27 23:00:00",
-        "closing_price": 0.4697,
+        "closing_price": 0.4746,
         "order": 5213,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.4697,
         "aankoopdatum": "2024-08-27 23:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-1.04"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "ADAEUR",
         "time": "2024-08-27 23:00:00",
-        "closing_price": 0.311458,
+        "closing_price": 0.316335,
         "order": 9804,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.311458,
         "aankoopdatum": "2024-08-27 23:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-1.57"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "ARBEUR",
         "time": "2024-08-28 00:00:00",
-        "closing_price": 0.4697,
+        "closing_price": 0.4746,
         "order": 9898,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.4697,
         "aankoopdatum": "2024-08-28 00:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-1.04"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "ADAEUR",
         "time": "2024-08-28 00:00:00",
-        "closing_price": 0.311458,
+        "closing_price": 0.316335,
         "order": 7758,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.311458,
         "aankoopdatum": "2024-08-28 00:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-1.57"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "ARBEUR",
         "time": "2024-08-28 02:00:00",
-        "closing_price": 0.4697,
+        "closing_price": 0.4746,
         "order": 1484,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.4697,
         "aankoopdatum": "2024-08-28 02:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-1.04"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "ADAEUR",
         "time": "2024-08-28 02:00:00",
-        "closing_price": 0.311458,
+        "closing_price": 0.316335,
         "order": 7268,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.311458,
         "aankoopdatum": "2024-08-28 02:00:00",
-        "percentage_gain": "0.00"
+        "percentage_gain": "-1.57"
     },
     {
         "type": "Bought",
@@ -294,7 +294,7 @@
         "time": "2024-08-28 02:00:00",
         "closing_price": 0.5135,
         "order": 8030,
-        "last_update": "2024-08-28 03:00:00",
+        "last_update": "2024-08-28 04:00:00",
         "aankoopprijs": 0.5135,
         "aankoopdatum": "2024-08-28 02:00:00",
         "percentage_gain": "0.00"
@@ -304,16 +304,24 @@
         "strategy": "Short",
         "symbol": "ARBEUR",
         "time": "2024-08-28 03:00:00",
-        "closing_price": 0.4697,
-        "order": 6773
+        "closing_price": 0.4746,
+        "order": 6773,
+        "last_update": "2024-08-28 04:00:00",
+        "aankoopprijs": 0.4697,
+        "aankoopdatum": "2024-08-28 03:00:00",
+        "percentage_gain": "-1.04"
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "ADAEUR",
         "time": "2024-08-28 03:00:00",
-        "closing_price": 0.311458,
-        "order": 2125
+        "closing_price": 0.316335,
+        "order": 2125,
+        "last_update": "2024-08-28 04:00:00",
+        "aankoopprijs": 0.311458,
+        "aankoopdatum": "2024-08-28 03:00:00",
+        "percentage_gain": "-1.57"
     },
     {
         "type": "Bought",
@@ -321,6 +329,26 @@
         "symbol": "MNTEUR",
         "time": "2024-08-28 03:00:00",
         "closing_price": 0.5135,
-        "order": 2517
+        "order": 2517,
+        "last_update": "2024-08-28 04:00:00",
+        "aankoopprijs": 0.5135,
+        "aankoopdatum": "2024-08-28 03:00:00",
+        "percentage_gain": "0.00"
+    },
+    {
+        "type": "Bought",
+        "strategy": "Short",
+        "symbol": "ARBEUR",
+        "time": "2024-08-28 04:00:00",
+        "closing_price": 0.4746,
+        "order": 5945
+    },
+    {
+        "type": "Bought",
+        "strategy": "Short",
+        "symbol": "MNTEUR",
+        "time": "2024-08-28 04:00:00",
+        "closing_price": 0.5135,
+        "order": 9717
     }
 ]
