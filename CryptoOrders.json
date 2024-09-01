@@ -6,9 +6,9 @@
         "date_bought": "2024-09-01 09:00:00",
         "price_bought": 118.66,
         "order": 7887,
-        "last_update": "2024-09-01 11:00:00",
-        "closing_price": 118.01,
-        "percentage_gain": "0.55"
+        "last_update": "2024-09-01 12:00:00",
+        "closing_price": 119.57,
+        "percentage_gain": "-0.77"
     },
     {
         "type": "Bought",
@@ -17,9 +17,9 @@
         "date_bought": "2024-09-01 09:00:00",
         "price_bought": 1.3441,
         "order": 4503,
-        "last_update": "2024-09-01 11:00:00",
-        "closing_price": 1.33,
-        "percentage_gain": "1.05"
+        "last_update": "2024-09-01 12:00:00",
+        "closing_price": 1.3414,
+        "percentage_gain": "0.20"
     },
     {
         "type": "Bought",
@@ -28,9 +28,9 @@
         "date_bought": "2024-09-01 10:00:00",
         "price_bought": 118.84,
         "order": 9366,
-        "last_update": "2024-09-01 11:00:00",
-        "closing_price": 118.01,
-        "percentage_gain": "0.70"
+        "last_update": "2024-09-01 12:00:00",
+        "closing_price": 119.57,
+        "percentage_gain": "-0.61"
     },
     {
         "type": "Bought",
@@ -39,9 +39,9 @@
         "date_bought": "2024-09-01 10:00:00",
         "price_bought": 1.3382,
         "order": 2268,
-        "last_update": "2024-09-01 11:00:00",
-        "closing_price": 1.33,
-        "percentage_gain": "0.61"
+        "last_update": "2024-09-01 12:00:00",
+        "closing_price": 1.3414,
+        "percentage_gain": "-0.24"
     },
     {
         "type": "Bought",
@@ -49,7 +49,10 @@
         "symbol": "SOLEUR",
         "date_bought": "2024-09-01 11:00:00",
         "price_bought": 118.01,
-        "order": 4138
+        "order": 4138,
+        "last_update": "2024-09-01 12:00:00",
+        "closing_price": 119.57,
+        "percentage_gain": "-1.32"
     },
     {
         "type": "Bought",
@@ -57,6 +60,9 @@
         "symbol": "STXEUR",
         "date_bought": "2024-09-01 11:00:00",
         "price_bought": 1.33,
-        "order": 9929
+        "order": 9929,
+        "last_update": "2024-09-01 12:00:00",
+        "closing_price": 1.3414,
+        "percentage_gain": "-0.86"
     }
 ]
