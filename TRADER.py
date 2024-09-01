@@ -345,7 +345,7 @@ class apibot():
             order_number = random.randint(1000, 9999)
             buy_message = f"Koop:\n Positie: Short\n Market: {last_row['market']} Prijs: {last_row['close']}"
             buy_order = {'type': 'Bought', 'strategy': 'Short', 'symbol': last_row['market'],
-                                                'time': str(last_index.to_pydatetime()),
+                                                'date_bought': str(last_index.to_pydatetime()),
                                                 'price_bought': float(last_row['close']),
                                                 'order': order_number}
 
