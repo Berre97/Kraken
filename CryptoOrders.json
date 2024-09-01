@@ -2,141 +2,17 @@
     {
         "type": "Bought",
         "strategy": "Short",
-        "symbol": "ADAEUR",
-        "time": "2024-08-27 00:00:00",
-        "closing_price": 0.311342,
-        "order": 6577,
-        "last_update": "2024-09-01 09:00:00",
-        "price_bought": 0.33
-        "date_bought": "2024-08-27 00:00:00",
-        "percentage_gain": "0.09"
-    },
-    {
-        "type": "Bought",
-        "strategy": "Short",
-        "symbol": "ARBEUR",
-        "time": "2024-08-27 10:00:00",
-        "closing_price": 0.4586,
-        "order": 1403,
-        "last_update": "2024-09-01 09:00:00",
-        "price_bought": 0.5116,
-        "date_bought": "2024-08-27 10:00:00",
-        "percentage_gain": "0.50"
-    },
-    {
-        "type": "Bought",
-        "strategy": "Short",
-        "symbol": "ARBEUR",
-        "time": "2024-08-27 11:00:00",
-        "closing_price": 0.4586,
-        "order": 8262,
-        "last_update": "2024-09-01 09:00:00",
-        "price_bought": 0.5029
-        "date_bought": "2024-08-27 11:00:00",
-        "percentage_gain": "0.50"
-    },
-    {
-        "type": "Bought",
-        "strategy": "Short",
-        "symbol": "ADAEUR",
-        "time": "2024-08-27 11:00:00",
-        "closing_price": 0.311342,
-        "order": 7409,
-        "last_update": "2024-09-01 09:00:00",
-        "price_bought": 0.3255
-        "date_bought": "2024-08-27 11:00:00",
-        "percentage_gain": "0.09"
-    },
-    {
-        "type": "Bought",
-        "strategy": "Short",
-        "symbol": "ARBEUR",
-        "time": "2024-08-27 12:00:00",
-        "closing_price": 0.4586,
-        "order": 1242,
-        "last_update": "2024-09-01 09:00:00",
-        "price_bought": 0.5012,
-        "date_bought": "2024-08-27 12:00:00",
-        "percentage_gain": "0.50"
-    },
-    {
-        "type": "Bought",
-        "strategy": "Short",
-        "symbol": "ARBEUR",
-        "time": "2024-08-27 13:00:00",
-        "closing_price": 0.4586,
-        "order": 2740,
-        "last_update": "2024-09-01 09:00:00",
-        "price_bought": 0.3262
-        "date_bought": "2024-08-27 13:00:00",
-        "percentage_gain": "0.50"
-    },
-    {
-        "type": "Bought",
-        "strategy": "Short",
-        "symbol": "ARBEUR",
-        "time": "2024-08-27 14:00:00",
-        "closing_price": 0.4586,
-        "order": 6494,
-        "last_update": "2024-09-01 09:00:00",
-        "price_bought": 0.4983
-        "date_bought": "2024-08-27 14:00:00",
-        "percentage_gain": "0.50"
-    },
-    {
-        "type": "Bought",
-        "strategy": "Short",
-        "symbol": "INJEUR",
-        "time": "2024-08-27 14:00:00",
-        "closing_price": 15.622,
-        "order": 2109,
-        "last_update": "2024-09-01 09:00:00",
-        "price_bought": 18.32,
-        "date_bought": "2024-08-27 14:00:00",
-        "percentage_gain": "-0.53"
-    },
-    {
-        "type": "Bought",
-        "strategy": "Short",
         "symbol": "SOLEUR",
-        "time": "2024-09-01 05:00:00",
-        "closing_price": 119.01,
-        "order": 4267,
-        "last_update": "2024-09-01 09:00:00",
-        "price_bought": 124.69
-        "date_bought": "2024-09-01 05:00:00",
-        "percentage_gain": "1.07"
-    },
-    {
-        "type": "Bought",
-        "strategy": "Short",
-        "symbol": "SOLEUR",
-        "time": "2024-09-01 06:00:00",
-        "closing_price": 119.01,
-        "order": 2872,
-        "last_update": "2024-09-01 09:00:00",
-        "price_bought": 124.98
-        "date_bought": "2024-09-01 06:00:00",
-        "percentage_gain": "1.07"
+        "date_bought": "2024-09-01 09:00:00",
+        "price_bought": 118.66,
+        "order": 7887
     },
     {
         "type": "Bought",
         "strategy": "Short",
         "symbol": "STXEUR",
-        "time": "2024-09-01 06:00:00",
-        "closing_price": 1.3498,
-        "order": 5297,
-        "last_update": "2024-09-01 09:00:00",
-        "price_bought": 1.4
-        "date_bought": "2024-09-01 06:00:00",
-        "percentage_gain": "0.00"
-    },
-    {
-        "type": "Bought",
-        "strategy": "Short",
-        "symbol": "SOLEUR",
         "date_bought": "2024-09-01 09:00:00",
-        "price_bought": 119.01,
-        "order": 9092
+        "price_bought": 1.3441,
+        "order": 4503
     }
 ]
