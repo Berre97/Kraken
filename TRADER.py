@@ -201,19 +201,19 @@ class apibot():
         if self.load_data(self._file_path) is not None:
             for i in self.load_data(self._file_path):
                 if i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
-                        float(last_row['close']) <= float(i['closing_price']) * 0.95 and i['strategy'] == 'Long':
+                        float(last_row['close']) <= float(i['price_bought']) * 0.95 and i['strategy'] == 'Long':
                             
-                    percentage_loss = (float(i['closing_price']) - float(last_row['close'])) * 100 / float(i['closing_price'])
-                    percentage_loss = format(percentage_loss, ".2f")
+                    percentage_loss = (float(i['price_bought']) - float(last_row['close'])) * 100 / float(i['price_bought'])
+                    percentage_loss = round(percentage, 2)
 
                     stoploss_message = f"Stoploss:\n Positie: Long\n Market:{last_row['market']} Prijs: {last_row['close']}\n" \
                                        f"percentage loss: {percentage_loss}"
 
                     stoploss_order = {'type': 'Stoploss', "symbol": last_row['market'], 'order': i['order'],
-                                                           'time': str(last_index.to_pydatetime()),
+                                                           'date_stoploss': str(last_index.to_pydatetime()),
                                                            'closing_price': float(last_row['close']),
-                                                           'aankoopprijs': float(i['closing_price']),
-                                                           'aankoopdatum': str(i['time']),
+                                                           'price_bought': float(i['price_bought']),
+                                                           'date_bought': str(i['date_bought']),
                                                            'percentage_loss': percentage_loss}
         
                     print(stoploss_order)
@@ -221,20 +221,20 @@ class apibot():
                     await self.send_telegram_message(stoploss_message)
                                                                         
                 elif i['type'] == 'Bought' and i['symbol'] == last_row['market'] and i['strategy'] == 'Long':
-                    if float(last_row['close']) >= float(i['closing_price']) * 1.05 and i['strategy'] == 'Long' and df['Buy Signal Long'].all() == False:
+                    if float(last_row['close']) >= float(i['price_bought']) * 1.05 and i['strategy'] == 'Long' and df['Buy Signal Long'].all() == False:
          
-                       percentage = (float(last_row['close']) - float(i['closing_price'])) / float(i['closing_price']) * 100
-                       percentage = format(percentage, ".2f")
+                       percentage = (float(last_row['close']) - float(i['price_bought'])) / float(i['price_bought']) * 100
+                       percentage = round(percentage, 2)
                        sell_order = {'type': 'Sold', 'symbol': last_row['market'],
                                                          'order': i['order'],
-                                                         'time': str(last_index.to_pydatetime()),
+                                                         'date_sold': str(last_index.to_pydatetime()),
                                                          'closing_price': float(last_row['close']),
-                                                         'aankoopprijs': float(i['closing_price']),
-                                                         'aankoopdatum': str(i['time']),
+                                                         'price_bought': float(i['price_bought']),
+                                                         'date_bought': str(i['date_bought']),
                                                          'percentage_gained': percentage}
 
                        sell_message = f"Verkoop:\n {last_row['market']} prijs: {last_row['close']} " \
-                                      f"aankoopkoers: {float(i['closing_price'])}\n " \
+                                      f"aankoopkoers: {i['price_bought']}\n " \
                                       f"percentage gained: {percentage}"
 
                        print(sell_order)
@@ -243,37 +243,37 @@ class apibot():
 
                     
                     else:
-                        percentage = (float(last_row['close']) - float(i['closing_price'])) / float(i['closing_price']) * 100
-                        percentage = format(percentage, ".2f")
+                        percentage = (float(last_row['close']) - float(i['price_bought'])) / float(i['price_bought']) * 100
+                        percentage = round(percentage, 2)
                         update_order = {'type': 'Bought', 'symbol': last_row['market'],
                                                        'order': i['order'],
                                                        'last_update': str(last_index.to_pydatetime()),
                                                        'closing_price': float(last_row['close']),
-                                                       'aankoopprijs': float(i['closing_price']),
-                                                       'aankoopdatum': str(i['time']),
+                                                       'price_bought': float(i['price_bought']),
+                                                       'date_bought': str(i['date_bought']),
                                                        'percentage_gained': percentage}
 
                         update_message = f"Update:\n {last_row['market']} prijs: {last_row['close']} " \
-                                   f"aankoopkoers: {float(i['closing_price'])}\n " \
+                                   f"aankoopkoers: {i['price_bought']}\n " \
                                    f"percentage gained: {percentage}"
 
                         self.update_file(self._file_path, update_order)     
 
                 
                 if i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
-                        float(last_row['close']) >= float(i['closing_price']) * 1.05 and i['strategy'] == 'Short':
+                        float(last_row['close']) >= float(i['price_bought']) * 1.05 and i['strategy'] == 'Short':
                                     
-                    percentage_loss = (float(last_row['close']) - float(i['closing_price'])) * 100 / float(i['closing_price'])
-                    percentage_loss = format(percentage_loss, ".2f")
+                    percentage_loss = (float(last_row['close']) - float(i['price_bought'])) * 100 / float(i['price_bought'])
+                    percentage_loss = round(percentage, 2)
 
                     stoploss_message = f"Stoploss:\n Positie: Short\n Market: {last_row['market']} Prijs: {last_row['close']}\n" \
                                        f"percentage loss: {percentage_loss}"
 
                     stoploss_order = {'type': 'Stoploss', "symbol": last_row['market'], 'order': i['order'],
-                                                           'time': str(last_index.to_pydatetime()),
+                                                           'date_stoploss': str(last_index.to_pydatetime()),
                                                            'closing_price': float(last_row['close']),
-                                                           'aankoopprijs': float(i['closing_price']),
-                                                           'aankoopdatum': str(i['time']),
+                                                           'price_bought': float(i['price_bought']),
+                                                           'date_bought': str(i['date_bought']),
                                                            'percentage_loss': percentage_loss}
         
                     print(stoploss_order)
@@ -282,21 +282,21 @@ class apibot():
 
                                                                              
                 elif i['type'] == 'Bought' and i['symbol'] == last_row['market'] and i['strategy'] == 'Short':
-                    if float(last_row['close']) <= float(i['closing_price']) * 0.95 and \
+                    if float(last_row['close']) <= float(i['price_bought']) * 0.95 and \
                         i['strategy'] == 'Short' and df['Buy Signal Short'].all() == False:
                             
-                        percentage = (float(i['closing_price']) - float(last_row['close'])) / float(i['closing_price']) * 100
+                        percentage = (float(i['price_bought']) - float(last_row['close'])) / float(i['price_bought']) * 100
                         percentage = format(percentage, ".2f")
                         sell_order = {'type': 'Sold', 'symbol': last_row['market'],
                                                        'order': i['order'],
-                                                       'time': str(last_index.to_pydatetime()),
-                                                       'closing_price': float(last_row['close']),
-                                                       'aankoopprijs': float(i['closing_price']),
-                                                       'aankoopdatum': str(i['time']),
+                                                       'date_sold': str(last_index.to_pydatetime()),
+                                                       'price_sold': float(last_row['close']),
+                                                       'price_bought': float(i['price_bought']),
+                                                       'date_bought': str(i['date_bought']),
                                                        'percentage_gained': percentage}
 
                         sell_message = f"Verkocht:\n Market: {last_row['market']} Prijs: {last_row['close']} " \
-                                   f"aankoopkoers: {float(i['closing_price'])}\n " \
+                                   f"aankoopkoers: {i['price_bought']}\n " \
                                    f"percentage gained: {percentage}"
 
                         print(sell_order)
@@ -305,18 +305,18 @@ class apibot():
 
                     
                     else:
-                        percentage = (float(i['closing_price']) - float(last_row['close'])) / float(i['closing_price']) * 100
+                        percentage = (float(i['price_bought']) - float(last_row['close'])) / float(i['price_bought']) * 100
                         percentage = format(percentage, ".2f")
                         update_order = {'type': 'Bought', 'symbol': last_row['market'],
                                                        'order': i['order'],
                                                        'last_update': str(last_index.to_pydatetime()),
                                                        'closing_price': float(last_row['close']),
-                                                       'aankoopprijs': float(i['closing_price']),
-                                                       'aankoopdatum': str(i['time']),
+                                                       'price_bought': float(i['price_bought']),
+                                                       'date_bought': str(i['date_bought']),
                                                        'percentage_gain': percentage}
 
                         update_message = f"Update:\n {last_row['market']} prijs: {last_row['close']} " \
-                                   f"aankoopkoers: {float(i['closing_price'])}\n " \
+                                   f"aankoopkoers: {i['price_bought']}\n " \
                                    f"percentage gained: {percentage}"
                 
                         self.update_file(self._file_path, update_order)
@@ -328,8 +328,8 @@ class apibot():
             order_number = random.randint(1000, 9999)
             buy_message = f"Koop:\n Positie: Long\n Market: {last_row['market']} Prijs: {last_row['close']}"
             buy_order = {'type': 'Bought', 'strategy': 'Long', 'symbol': last_row['market'],
-                                                'time': str(last_index.to_pydatetime()),
-                                                'closing_price': float(last_row['close']),
+                                                'date_bought': str(last_index.to_pydatetime()),
+                                                'price_bought': float(last_row['close']),
                                                 'order': order_number}
 
   
@@ -346,7 +346,7 @@ class apibot():
             buy_message = f"Koop:\n Positie: Short\n Market: {last_row['market']} Prijs: {last_row['close']}"
             buy_order = {'type': 'Bought', 'strategy': 'Short', 'symbol': last_row['market'],
                                                 'time': str(last_index.to_pydatetime()),
-                                                'closing_price': float(last_row['close']),
+                                                'price_bought': float(last_row['close']),
                                                 'order': order_number}
 
       
