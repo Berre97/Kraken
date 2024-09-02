@@ -204,7 +204,7 @@ class apibot():
                         float(last_row['close']) <= float(i['price_bought']) * 0.95 and i['strategy'] == 'Long':
                             
                     percentage_loss = (float(i['price_bought']) - float(last_row['close'])) * 100 / float(i['price_bought'])
-                    percentage_loss = round(percentage, 2)
+                    percentage_loss = round(percentage_loss, 2)
 
                     stoploss_message = f"Stoploss:\n Positie: Long\n Market:{last_row['market']} Prijs: {last_row['close']}\n" \
                                        f"percentage loss: {percentage_loss}"
@@ -264,7 +264,7 @@ class apibot():
                         float(last_row['close']) >= float(i['price_bought']) * 1.05 and i['strategy'] == 'Short':
                                     
                     percentage_loss = (float(last_row['close']) - float(i['price_bought'])) * 100 / float(i['price_bought'])
-                    percentage_loss = round(percentage, 2)
+                    percentage_loss = round(percentage_loss, 2)
 
                     stoploss_message = f"Stoploss:\n Positie: Short\n Market: {last_row['market']} Prijs: {last_row['close']}\n" \
                                        f"percentage loss: {percentage_loss}"
