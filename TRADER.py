@@ -189,14 +189,7 @@ class apibot():
         print("Laatste data:")
         print(last_row, last_index)
         print('--------------------------------------------------------')
- 
-        #Going long
-        indicators_buy_long = df.loc[last_index, ['Buy Signal Long']]
-
-        #Going short
-        indicators_buy_short = df.loc[last_index, ['Buy Signal Short', 'RSI_Oversold']]
-
-        
+  
         #take profit / Stop loss
         if self.load_data(self._file_path) is not None:
             for i in self.load_data(self._file_path):
@@ -324,7 +317,7 @@ class apibot():
                     
 
         #Going long
-        if indicators_buy_long.all():
+        if last_row['Buy Signal Long'] and last_row['RSI_Overbought'] != True:
             order_number = random.randint(1000, 9999)
             buy_message = f"Koop:\n Positie: Long\n Market: {last_row['market']} Prijs: {last_row['close']}"
             buy_order = {'type': 'Bought', 'strategy': 'Long', 'symbol': last_row['market'],
@@ -341,7 +334,7 @@ class apibot():
             print('Geen long koopsignalen gevonden')
 
         #Going short
-        if indicators_buy_short.all():
+        if last_row['Buy Signal Short'] and last_row['RSI_Oversold']:
             order_number = random.randint(1000, 9999)
             buy_message = f"Koop:\n Positie: Short\n Market: {last_row['market']} Prijs: {last_row['close']}"
             buy_order = {'type': 'Bought', 'strategy': 'Short', 'symbol': last_row['market'],
