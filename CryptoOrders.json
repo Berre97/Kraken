@@ -5,7 +5,10 @@
         "symbol": "INJEUR",
         "date_bought": "2024-09-12 14:00:00",
         "price_bought": 17.13,
-        "order": 5930
+        "order": 5930,
+        "last_update": "2024-09-12 15:00:00",
+        "closing_price": 17.175,
+        "percentage_gained": 0.26
     },
     {
         "type": "Bought",
@@ -13,6 +16,33 @@
         "symbol": "STXEUR",
         "date_bought": "2024-09-12 14:00:00",
         "price_bought": 1.4648,
-        "order": 4334
+        "order": 4334,
+        "last_update": "2024-09-12 15:00:00",
+        "closing_price": 1.4792,
+        "percentage_gained": 0.98
+    },
+    {
+        "type": "Bought",
+        "strategy": "Long",
+        "symbol": "INJEUR",
+        "date_bought": "2024-09-12 15:00:00",
+        "price_bought": 17.175,
+        "order": 4676
+    },
+    {
+        "type": "Bought",
+        "strategy": "Long",
+        "symbol": "ADAEUR",
+        "date_bought": "2024-09-12 15:00:00",
+        "price_bought": 0.322439,
+        "order": 5064
+    },
+    {
+        "type": "Bought",
+        "strategy": "Long",
+        "symbol": "STXEUR",
+        "date_bought": "2024-09-12 15:00:00",
+        "price_bought": 1.4792,
+        "order": 3627
     }
 ]
