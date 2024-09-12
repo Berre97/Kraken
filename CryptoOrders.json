@@ -6,9 +6,9 @@
         "date_bought": "2024-09-12 14:00:00",
         "price_bought": 17.13,
         "order": 5930,
-        "last_update": "2024-09-12 15:00:00",
-        "closing_price": 17.175,
-        "percentage_gained": 0.26
+        "last_update": "2024-09-12 16:00:00",
+        "closing_price": 17.075,
+        "percentage_gained": -0.32
     },
     {
         "type": "Bought",
@@ -17,9 +17,9 @@
         "date_bought": "2024-09-12 14:00:00",
         "price_bought": 1.4648,
         "order": 4334,
-        "last_update": "2024-09-12 15:00:00",
-        "closing_price": 1.4792,
-        "percentage_gained": 0.98
+        "last_update": "2024-09-12 16:00:00",
+        "closing_price": 1.4647,
+        "percentage_gained": -0.01
     },
     {
         "type": "Bought",
@@ -27,7 +27,10 @@
         "symbol": "INJEUR",
         "date_bought": "2024-09-12 15:00:00",
         "price_bought": 17.175,
-        "order": 4676
+        "order": 4676,
+        "last_update": "2024-09-12 16:00:00",
+        "closing_price": 17.075,
+        "percentage_gained": -0.58
     },
     {
         "type": "Bought",
@@ -35,7 +38,10 @@
         "symbol": "ADAEUR",
         "date_bought": "2024-09-12 15:00:00",
         "price_bought": 0.322439,
-        "order": 5064
+        "order": 5064,
+        "last_update": "2024-09-12 16:00:00",
+        "closing_price": 0.322331,
+        "percentage_gained": -0.03
     },
     {
         "type": "Bought",
@@ -43,6 +49,25 @@
         "symbol": "STXEUR",
         "date_bought": "2024-09-12 15:00:00",
         "price_bought": 1.4792,
-        "order": 3627
+        "order": 3627,
+        "last_update": "2024-09-12 16:00:00",
+        "closing_price": 1.4647,
+        "percentage_gained": -0.98
+    },
+    {
+        "type": "Bought",
+        "strategy": "Long",
+        "symbol": "ADAEUR",
+        "date_bought": "2024-09-12 16:00:00",
+        "price_bought": 0.322331,
+        "order": 2314
+    },
+    {
+        "type": "Bought",
+        "strategy": "Long",
+        "symbol": "STXEUR",
+        "date_bought": "2024-09-12 16:00:00",
+        "price_bought": 1.4647,
+        "order": 5996
     }
 ]
