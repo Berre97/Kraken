@@ -24,14 +24,60 @@ class apibot():
     def __init__(self, file_path, markets):
         self._markets = markets
         self._file_path = file_path
-        self._portfolio = "Portfolio\n"
 
+    def get_nonce():
+        return str(int(1000 * time.time()))
+    
+    # Functie om de API-handtekening te maken
+    def get_kraken_signature(urlpath, data, secret):
+        postdata = urllib.parse.urlencode(data)
+        encoded = (str(data['nonce']) + postdata).encode()
+        message = urlpath.encode() + hashlib.sha256(encoded).digest()
+        mac = hmac.new(base64.b64decode(secret), message, hashlib.sha512)
+        return base64.b64encode(mac.digest())
+    
+    # Functie om verzoeken naar Kraken te sturen
+    def kraken_request(uri_path, data):
+        API_URL = "https://api.kraken.com"
+        headers = {
+            'API-Key': api_key,
+            'API-Sign': get_kraken_signature(uri_path, data, api_secret)
+        }
+        response = requests.post(API_URL + uri_path, headers=headers, data=data)
+        return response.json()
+    
+    # Functie om een order te plaatsen (long of short)
+    def place_order(pair, volume, order_type, leverage="none"):
+        uri_path = "/0/private/AddOrder"
+        data = {
+            "nonce": get_nonce(),
+            "ordertype": "market",
+            "pair": pair,
+            "type": order_type, 
+            "volume": volume,
+            "leverage": leverage  
+        }
+        
+        return kraken_request(uri_path, data)
 
-    async def send_telegram_message(self, message):
-      try:
-          await token.send_message(chat_id=chat_id, text=message, read_timeout=20)
-      except TimeoutError:
-        print("Failed to send message due to timeout.")
+    
+    def long_trade(pair, volume, leverage="none"):
+        print("Plaatsen van een long positie...")
+        result = self.place_order(pair, volume, "buy", leverage)
+        print(result)
+        
+  
+    def short_trade(pair, volume, leverage="none"):
+        print("Plaatsen van een short positie...")
+        result = self.place_order(pair, volume, "sell", leverage)
+        print(result)
+
+        
+        async def send_telegram_message(self, message):
+          try:
+              await token.send_message(chat_id=chat_id, text=message, read_timeout=20)
+          except TimeoutError:
+            print("Failed to send message due to timeout.")
 
 
     def load_data(self, file_path):
@@ -318,6 +364,7 @@ class apibot():
 
         #Going long
         if last_row['Buy Signal Long'] and last_row['RSI_Overbought'] != True:
+            amount_eur = 10
             order_number = random.randint(1000, 9999)
             buy_message = f"Koop:\n Positie: Long\n Market: {last_row['market']} Prijs: {last_row['close']}"
             buy_order = {'type': 'Bought', 'strategy': 'Long', 'symbol': last_row['market'],
@@ -327,6 +374,7 @@ class apibot():
 
   
             print(buy_order)
+            # self.long_trade(pair=last_row['market'], volume=round(amount_eur/last_row['close']), leverage=2:1)
             self.update_file(self._file_path, buy_order)
             await self.send_telegram_message(buy_message)
 
@@ -335,6 +383,7 @@ class apibot():
 
         #Going short
         if last_row['Buy Signal Short'] and last_row['RSI_Oversold']:
+            amount_eur = 10
             order_number = random.randint(1000, 9999)
             buy_message = f"Koop:\n Positie: Short\n Market: {last_row['market']} Prijs: {last_row['close']}"
             buy_order = {'type': 'Bought', 'strategy': 'Short', 'symbol': last_row['market'],
@@ -342,8 +391,9 @@ class apibot():
                                                 'price_bought': float(last_row['close']),
                                                 'order': order_number}
 
-      
+          
             print(buy_order)
+            # self.short_trade(pair=last_row['market'], volume=round(amount_eur/last_row['close']), leverage=2:1)
             self.update_file(self._file_path, buy_order)
             await self.send_telegram_message(buy_message)
             
