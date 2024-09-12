@@ -1,0 +1,18 @@
+[
+    {
+        "type": "Bought",
+        "strategy": "Long",
+        "symbol": "INJEUR",
+        "date_bought": "2024-09-12 14:00:00",
+        "price_bought": 17.13,
+        "order": 5930
+    },
+    {
+        "type": "Bought",
+        "strategy": "Long",
+        "symbol": "STXEUR",
+        "date_bought": "2024-09-12 14:00:00",
+        "price_bought": 1.4648,
+        "order": 4334
+    }
+]
