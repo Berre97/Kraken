@@ -209,7 +209,7 @@ class apibot():
                                                            'date_bought': str(i['date_bought']),
                                                            'percentage_loss': percentage_loss}
         
-                    print(stoploss_order)
+
                     self.update_file(self._file_path, stoploss_order)
                     await self.send_telegram_message(stoploss_message)
                                                                         
@@ -230,7 +230,7 @@ class apibot():
                                       f"aankoopkoers: {i['price_bought']}\n " \
                                       f"percentage gained: {percentage}"
 
-                       print(sell_order)
+                       
                        self.update_file(self._file_path, sell_order)
                        await self.send_telegram_message(sell_message)
 
@@ -269,7 +269,7 @@ class apibot():
                                                            'date_bought': str(i['date_bought']),
                                                            'percentage_loss': percentage_loss}
         
-                    print(stoploss_order)
+                   
                     self.update_file(self._file_path, stoploss_order)
                     await self.send_telegram_message(stoploss_message)
 
@@ -292,7 +292,7 @@ class apibot():
                                    f"aankoopkoers: {i['price_bought']}\n " \
                                    f"percentage gained: {percentage}"
 
-                        print(sell_order)
+                        
                         self.update_file(self._file_path, sell_order)
                         await self.send_telegram_message(sell_message)
 
@@ -326,7 +326,7 @@ class apibot():
                                                 'order': order_number}
 
   
-            print(buy_order)
+            
             self.update_file(self._file_path, buy_order)
             await self.send_telegram_message(buy_message)
 
@@ -342,8 +342,6 @@ class apibot():
                                                 'price_bought': float(last_row['close']),
                                                 'order': order_number}
 
-      
-            print(buy_order)
             self.update_file(self._file_path, buy_order)
             await self.send_telegram_message(buy_message)
             
