@@ -115,7 +115,7 @@ class apibot():
         else:
 
           # RSI Overbought / Oversold
-          df['RSI_Overbought'] = np.where(df['RSI'] >= 60, True, False)
+          df['RSI_Overbought'] = np.where(df['RSI'] >= 55, True, False)
           df['RSI_Oversold'] = np.where(df['RSI'] <= 35, True, False)
             
           # MACD Crossovers
@@ -194,7 +194,7 @@ class apibot():
         if self.load_data(self._file_path) is not None:
             for i in self.load_data(self._file_path):
                 if i['type'] == 'Bought' and i['symbol'] == last_row['market'] and \
-                        float(last_row['close']) <= float(i['price_bought']) * 0.95 and i['strategy'] == 'Long':
+                        float(last_row['close']) <= float(i['price_bought']) * 0.96 and i['strategy'] == 'Long':
                             
                     percentage_loss = (float(i['price_bought']) - float(last_row['close'])) * 100 / float(i['price_bought'])
                     percentage_loss = round(percentage_loss, 2)
@@ -214,7 +214,7 @@ class apibot():
                     await self.send_telegram_message(stoploss_message)
                                                                         
                 elif i['type'] == 'Bought' and i['symbol'] == last_row['market'] and i['strategy'] == 'Long':
-                    if float(last_row['close']) >= float(i['price_bought']) * 1.05 and i['strategy'] == 'Long' and df['Buy Signal Long'].all() == False:
+                    if float(last_row['close']) >= float(i['price_bought']) * 1.06 and i['strategy'] == 'Long' and df['Buy Signal Long'].all() == False:
          
                        percentage = (float(last_row['close']) - float(i['price_bought'])) / float(i['price_bought']) * 100
                        percentage = round(percentage, 2)
@@ -359,5 +359,5 @@ class apibot():
 if __name__ == '__main__':
     # file_path = 'CryptoOrders.json'
     file_path = os.getenv('FILE_PATH')
-    bot = apibot(file_path=file_path, markets=['ARBEUR', 'INJEUR', 'SOLEUR', 'ADAEUR', 'MNTEUR', 'STXEUR'])
+    bot = apibot(file_path=file_path, markets=['AVAXEUR', 'BEAMEUR', 'ARBEUR', 'INJEUR', 'SOLEUR', 'ADAEUR', 'STXEUR'])
     asyncio.run(bot.main(bot))
