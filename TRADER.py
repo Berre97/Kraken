@@ -199,9 +199,8 @@ class apibot():
                     percentage_loss = (float(i['price_bought']) - float(last_row['close'])) * 100 / float(i['price_bought'])
                     percentage_loss = round(percentage_loss, 2)
 
-                    stoploss_message = f"Stoploss:\n Positie: Long\n Market:{last_row['market']} Prijs: {last_row['close']}\n" \
-                                       f"percentage loss: {percentage_loss}"
-
+                    stoploss_message = f"Stoploss:\n Positie: Long\n Market:{last_row['market']} Prijs: {last_row['close']}"
+                                
                     stoploss_order = {'type': 'Stoploss', "symbol": last_row['market'], 'order': i['order'],
                                                            'date_stoploss': str(last_index.to_pydatetime()),
                                                            'closing_price': float(last_row['close']),
@@ -226,9 +225,9 @@ class apibot():
                                                          'date_bought': str(i['date_bought']),
                                                          'percentage_gained': percentage}
 
-                       sell_message = f"Verkoop:\n {last_row['market']} prijs: {last_row['close']} " \
-                                      f"aankoopkoers: {i['price_bought']}\n " \
-                                      f"percentage gained: {percentage}"
+                       sell_message = f"Verkoop:\n {last_row['market']} prijs: {last_row['close']}\n"
+                                      f"Aankoopkoers: {i['price_bought']}"
+                                    
 
                        
                        self.update_file(self._file_path, sell_order)
@@ -246,10 +245,6 @@ class apibot():
                                                        'date_bought': str(i['date_bought']),
                                                        'percentage_gained': percentage}
 
-                        update_message = f"Update:\n {last_row['market']} prijs: {last_row['close']} " \
-                                   f"aankoopkoers: {i['price_bought']}\n " \
-                                   f"percentage gained: {percentage}"
-
                         self.update_file(self._file_path, update_order)     
 
                 
@@ -259,9 +254,8 @@ class apibot():
                     percentage_loss = (float(last_row['close']) - float(i['price_bought'])) * 100 / float(i['price_bought'])
                     percentage_loss = round(percentage_loss, 2)
 
-                    stoploss_message = f"Stoploss:\n Positie: Short\n Market: {last_row['market']} Prijs: {last_row['close']}\n" \
-                                       f"percentage loss: {percentage_loss}"
-
+                    stoploss_message = f"Stoploss:\nPositie: Short\nMarket: {last_row['market']} Prijs: {last_row['close']}" 
+                            
                     stoploss_order = {'type': 'Stoploss', "symbol": last_row['market'], 'order': i['order'],
                                                            'date_stoploss': str(last_index.to_pydatetime()),
                                                            'closing_price': float(last_row['close']),
@@ -288,9 +282,9 @@ class apibot():
                                                        'date_bought': str(i['date_bought']),
                                                        'percentage_gained': percentage}
 
-                        sell_message = f"Verkocht:\n Market: {last_row['market']} Prijs: {last_row['close']} " \
-                                   f"aankoopkoers: {i['price_bought']}\n " \
-                                   f"percentage gained: {percentage}"
+                        sell_message = f"Verkocht:\nMarket: {last_row['market']} Prijs: {last_row['close']}\n"
+                                   f"Aankoopkoers: {i['price_bought']}"
+                                
 
                         
                         self.update_file(self._file_path, sell_order)
@@ -308,9 +302,6 @@ class apibot():
                                                        'date_bought': str(i['date_bought']),
                                                        'percentage_gain': percentage}
 
-                        update_message = f"Update:\n {last_row['market']} prijs: {last_row['close']} " \
-                                   f"aankoopkoers: {i['price_bought']}\n " \
-                                   f"percentage gained: {percentage}"
                 
                         self.update_file(self._file_path, update_order)
                         
