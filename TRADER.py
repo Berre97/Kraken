@@ -199,7 +199,10 @@ class apibot():
                     percentage_loss = (float(i['price_bought']) - float(last_row['close'])) * 100 / float(i['price_bought'])
                     percentage_loss = round(percentage_loss, 2)
 
-                    stoploss_message = f"Stoploss:\n Positie: Long\n Market:{last_row['market']} Prijs: {last_row['close']}"
+                    stoploss_message = f"Stoploss: {last_row['market']}\n"\
+                                       f"Positie: Long\n"\
+                                       f"Prijs: {last_row['close']}\n"\
+                                       f"Aankoopprijs: {i['price_bought']}"
                                 
                     stoploss_order = {'type': 'Stoploss', "symbol": last_row['market'], 'order': i['order'],
                                                            'date_stoploss': str(last_index.to_pydatetime()),
@@ -225,8 +228,10 @@ class apibot():
                                                          'date_bought': str(i['date_bought']),
                                                          'percentage_gained': percentage}
 
-                       sell_message = f"Verkoop:\n {last_row['market']} prijs: {last_row['close']}\n"
-                                      f"Aankoopkoers: {i['price_bought']}"
+                       sell_message = f"Verkoop: {last_row['market']}\n"\
+                                      f"Positie: Long\n"\
+                                      f"Prijs: {last_row['close']}\n"\
+                                      f"Aankoopprijs: {i['price_bought']}"
                                     
 
                        
@@ -254,7 +259,11 @@ class apibot():
                     percentage_loss = (float(last_row['close']) - float(i['price_bought'])) * 100 / float(i['price_bought'])
                     percentage_loss = round(percentage_loss, 2)
 
-                    stoploss_message = f"Stoploss:\nPositie: Short\nMarket: {last_row['market']} Prijs: {last_row['close']}" 
+                    stoploss_message = f"Stoploss: {last_row['market']}\n"\
+                                       f"Positie: Short\n"\
+                                       f"Prijs: {last_row['close']}\n"\
+                                       f"Aankoopprijs: {i['price_bought']}"
+                    
                             
                     stoploss_order = {'type': 'Stoploss', "symbol": last_row['market'], 'order': i['order'],
                                                            'date_stoploss': str(last_index.to_pydatetime()),
@@ -282,9 +291,10 @@ class apibot():
                                                        'date_bought': str(i['date_bought']),
                                                        'percentage_gained': percentage}
 
-                        sell_message = f"Verkocht:\nMarket: {last_row['market']} Prijs: {last_row['close']}\n"
-                                   f"Aankoopkoers: {i['price_bought']}"
-                                
+                        sell_message = f"Verkoop: {last_row['market']}\n"\
+                                       f"Positie: Short\n"\
+                                       f"Prijs: {last_row['close']}\n"\
+                                       f"Aankoopkoers: {i['price_bought']}"
 
                         
                         self.update_file(self._file_path, sell_order)
