@@ -3113,7 +3113,7 @@
         "date_sold": "2024-10-01 11:00:00"
     },
     {
-        "type": "Bought",
+        "type": "Sold",
         "strategy": "Short",
         "symbol": "ADAEUR",
         "date_bought": "2024-09-30 23:00:00",
@@ -3121,7 +3121,10 @@
         "order": 5080,
         "last_update": "2024-10-01 19:00:00",
         "closing_price": 0.322108,
-        "percentage_gain": "4.25"
+        "percentage_gain": "4.25",
+        "date_sold": "2024-10-01 20:00:00",
+        "price_sold": 0.319035,
+        "percentage_gained": "5.17"
     },
     {
         "type": "Sold",
@@ -3156,9 +3159,9 @@
         "date_bought": "2024-10-01 00:00:00",
         "price_bought": 0.33558,
         "order": 2453,
-        "last_update": "2024-10-01 19:00:00",
-        "closing_price": 0.322108,
-        "percentage_gain": "4.01"
+        "last_update": "2024-10-01 20:00:00",
+        "closing_price": 0.319035,
+        "percentage_gain": "4.93"
     },
     {
         "type": "Stoploss",
