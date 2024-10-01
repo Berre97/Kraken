@@ -3153,7 +3153,7 @@
         "percentage_gained": "5.34"
     },
     {
-        "type": "Bought",
+        "type": "Sold",
         "strategy": "Short",
         "symbol": "ADAEUR",
         "date_bought": "2024-10-01 00:00:00",
@@ -3161,7 +3161,10 @@
         "order": 2453,
         "last_update": "2024-10-01 22:00:00",
         "closing_price": 0.319098,
-        "percentage_gain": "4.91"
+        "percentage_gain": "4.91",
+        "date_sold": "2024-10-01 23:00:00",
+        "price_sold": 0.316213,
+        "percentage_gained": "5.77"
     },
     {
         "type": "Stoploss",
