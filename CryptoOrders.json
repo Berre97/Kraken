@@ -3178,5 +3178,21 @@
         "percentage_gained": -1.81,
         "date_stoploss": "2024-10-01 15:00:00",
         "percentage_loss": 4.98
+    },
+    {
+        "type": "Bought",
+        "strategy": "Short",
+        "symbol": "ARBEUR",
+        "date_bought": "2024-10-02 10:00:00",
+        "price_bought": 0.4972,
+        "order": 5130
+    },
+    {
+        "type": "Bought",
+        "strategy": "Short",
+        "symbol": "ADAEUR",
+        "date_bought": "2024-10-02 10:00:00",
+        "price_bought": 0.31763,
+        "order": 6620
     }
 ]
