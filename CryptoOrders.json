@@ -1398,11 +1398,11 @@
         "date_bought": "2024-10-09 19:00:00",
         "price_bought": 0.4795,
         "order": 8154,
-        "last_update": "2024-10-11 12:00:00",
-        "closing_price": 0.4867,
-        "percentage_gained": 1.5,
+        "last_update": "2024-10-11 13:00:00",
+        "closing_price": 0.4882,
+        "percentage_gained": 1.81,
         "date_sold": "2024-09-21 14:00:00",
-        "percentage_gain": "-1.50"
+        "percentage_gain": "-1.81"
     },
     {
         "type": "Sold",
@@ -4276,9 +4276,9 @@
         "date_bought": "2024-10-09 13:00:00",
         "price_bought": 0.30868,
         "order": 3977,
-        "last_update": "2024-10-11 12:00:00",
-        "closing_price": 0.316396,
-        "percentage_gain": "-2.50"
+        "last_update": "2024-10-11 13:00:00",
+        "closing_price": 0.316762,
+        "percentage_gain": "-2.62"
     },
     {
         "type": "Bought",
@@ -4287,9 +4287,9 @@
         "date_bought": "2024-10-09 14:00:00",
         "price_bought": 0.308734,
         "order": 1149,
-        "last_update": "2024-10-11 12:00:00",
-        "closing_price": 0.316396,
-        "percentage_gain": "-2.48"
+        "last_update": "2024-10-11 13:00:00",
+        "closing_price": 0.316762,
+        "percentage_gain": "-2.60"
     },
     {
         "type": "Bought",
@@ -4298,10 +4298,10 @@
         "date_bought": "2024-10-09 19:00:00",
         "price_bought": 0.4795,
         "order": 8154,
-        "last_update": "2024-10-11 12:00:00",
-        "closing_price": 0.4867,
-        "percentage_gain": "-1.50",
-        "percentage_gained": 1.5
+        "last_update": "2024-10-11 13:00:00",
+        "closing_price": 0.4882,
+        "percentage_gain": "-1.81",
+        "percentage_gained": 1.81
     },
     {
         "type": "Bought",
@@ -4310,9 +4310,9 @@
         "date_bought": "2024-10-09 20:00:00",
         "price_bought": 0.4798,
         "order": 4878,
-        "last_update": "2024-10-11 12:00:00",
-        "closing_price": 0.4867,
-        "percentage_gain": "-1.44"
+        "last_update": "2024-10-11 13:00:00",
+        "closing_price": 0.4882,
+        "percentage_gain": "-1.75"
     },
     {
         "type": "Bought",
@@ -4321,9 +4321,9 @@
         "date_bought": "2024-10-09 21:00:00",
         "price_bought": 0.4739,
         "order": 1828,
-        "last_update": "2024-10-11 12:00:00",
-        "closing_price": 0.4867,
-        "percentage_gain": "-2.70"
+        "last_update": "2024-10-11 13:00:00",
+        "closing_price": 0.4882,
+        "percentage_gain": "-3.02"
     },
     {
         "type": "Bought",
@@ -4332,9 +4332,9 @@
         "date_bought": "2024-10-09 21:00:00",
         "price_bought": 0.305394,
         "order": 8354,
-        "last_update": "2024-10-11 12:00:00",
-        "closing_price": 0.316396,
-        "percentage_gain": "-3.60"
+        "last_update": "2024-10-11 13:00:00",
+        "closing_price": 0.316762,
+        "percentage_gain": "-3.72"
     },
     {
         "type": "Bought",
@@ -4343,9 +4343,9 @@
         "date_bought": "2024-10-09 21:00:00",
         "price_bought": 1.497,
         "order": 7442,
-        "last_update": "2024-10-11 12:00:00",
-        "closing_price": 1.5498,
-        "percentage_gain": "-3.53"
+        "last_update": "2024-10-11 13:00:00",
+        "closing_price": 1.5607,
+        "percentage_gain": "-4.26"
     },
     {
         "type": "Bought",
@@ -4354,9 +4354,9 @@
         "date_bought": "2024-10-09 23:00:00",
         "price_bought": 0.4759,
         "order": 2544,
-        "last_update": "2024-10-11 12:00:00",
-        "closing_price": 0.4867,
-        "percentage_gain": "-2.27"
+        "last_update": "2024-10-11 13:00:00",
+        "closing_price": 0.4882,
+        "percentage_gain": "-2.58"
     },
     {
         "type": "Bought",
@@ -4365,9 +4365,9 @@
         "date_bought": "2024-10-10 00:00:00",
         "price_bought": 0.4762,
         "order": 5584,
-        "last_update": "2024-10-11 12:00:00",
-        "closing_price": 0.4867,
-        "percentage_gain": "-2.20"
+        "last_update": "2024-10-11 13:00:00",
+        "closing_price": 0.4882,
+        "percentage_gain": "-2.52"
     },
     {
         "type": "Bought",
@@ -4376,8 +4376,8 @@
         "date_bought": "2024-10-10 18:00:00",
         "price_bought": 0.4683,
         "order": 9610,
-        "last_update": "2024-10-11 12:00:00",
-        "closing_price": 0.4867,
-        "percentage_gain": "-3.93"
+        "last_update": "2024-10-11 13:00:00",
+        "closing_price": 0.4882,
+        "percentage_gain": "-4.25"
     }
 ]
