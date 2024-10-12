@@ -1398,7 +1398,7 @@
         "date_bought": "2024-10-09 19:00:00",
         "price_bought": 0.4795,
         "order": 8154,
-        "last_update": "2024-10-12 12:00:00",
+        "last_update": "2024-10-12 13:00:00",
         "closing_price": 0.4919,
         "percentage_gained": 2.59,
         "date_sold": "2024-09-21 14:00:00",
@@ -4302,7 +4302,7 @@
         "date_bought": "2024-10-09 19:00:00",
         "price_bought": 0.4795,
         "order": 8154,
-        "last_update": "2024-10-12 12:00:00",
+        "last_update": "2024-10-12 13:00:00",
         "closing_price": 0.4919,
         "percentage_gain": "-2.59",
         "percentage_gained": 2.59
@@ -4314,7 +4314,7 @@
         "date_bought": "2024-10-09 20:00:00",
         "price_bought": 0.4798,
         "order": 4878,
-        "last_update": "2024-10-12 12:00:00",
+        "last_update": "2024-10-12 13:00:00",
         "closing_price": 0.4919,
         "percentage_gain": "-2.52"
     },
@@ -4325,7 +4325,7 @@
         "date_bought": "2024-10-09 21:00:00",
         "price_bought": 0.4739,
         "order": 1828,
-        "last_update": "2024-10-12 12:00:00",
+        "last_update": "2024-10-12 13:00:00",
         "closing_price": 0.4919,
         "percentage_gain": "-3.80"
     },
@@ -4362,7 +4362,7 @@
         "date_bought": "2024-10-09 23:00:00",
         "price_bought": 0.4759,
         "order": 2544,
-        "last_update": "2024-10-12 12:00:00",
+        "last_update": "2024-10-12 13:00:00",
         "closing_price": 0.4919,
         "percentage_gain": "-3.36"
     },
@@ -4373,7 +4373,7 @@
         "date_bought": "2024-10-10 00:00:00",
         "price_bought": 0.4762,
         "order": 5584,
-        "last_update": "2024-10-12 12:00:00",
+        "last_update": "2024-10-12 13:00:00",
         "closing_price": 0.4919,
         "percentage_gain": "-3.30"
     },
@@ -4389,5 +4389,13 @@
         "percentage_gain": "-4.72",
         "date_stoploss": "2024-10-11 18:00:00",
         "percentage_loss": 5.15
+    },
+    {
+        "type": "Bought",
+        "strategy": "Long",
+        "symbol": "BEAMEUR",
+        "date_bought": "2024-10-12 13:00:00",
+        "price_bought": 0.01431,
+        "order": 5945
     }
 ]
