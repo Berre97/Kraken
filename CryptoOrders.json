@@ -4537,6 +4537,17 @@
         "symbol": "AVAXEUR",
         "date_bought": "2024-10-14 18:00:00",
         "price_bought": 26.67,
-        "order": 8398
+        "order": 8398,
+        "last_update": "2024-10-14 19:00:00",
+        "closing_price": 26.75,
+        "percentage_gained": 0.3
+    },
+    {
+        "type": "Bought",
+        "strategy": "Long",
+        "symbol": "AVAXEUR",
+        "date_bought": "2024-10-14 19:00:00",
+        "price_bought": 26.75,
+        "order": 8662
     }
 ]
