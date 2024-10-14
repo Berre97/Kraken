@@ -4520,14 +4520,15 @@
         "percentage_loss": 4.24
     },
     {
-        "type": "Bought",
+        "type": "Sold",
         "strategy": "Long",
         "symbol": "SOLEUR",
         "date_bought": "2024-10-13 00:00:00",
         "price_bought": 133.73,
         "order": 9767,
         "last_update": "2024-10-14 14:00:00",
-        "closing_price": 140.77,
-        "percentage_gained": 5.26
+        "closing_price": 141.88,
+        "percentage_gained": 6.09,
+        "date_sold": "2024-10-14 15:00:00"
     }
 ]
