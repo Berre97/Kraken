@@ -4538,9 +4538,9 @@
         "date_bought": "2024-10-14 18:00:00",
         "price_bought": 26.67,
         "order": 8398,
-        "last_update": "2024-10-15 04:00:00",
-        "closing_price": 26.31,
-        "percentage_gained": -1.35
+        "last_update": "2024-10-15 05:00:00",
+        "closing_price": 26.48,
+        "percentage_gained": -0.71
     },
     {
         "type": "Bought",
@@ -4549,9 +4549,9 @@
         "date_bought": "2024-10-14 19:00:00",
         "price_bought": 26.75,
         "order": 8662,
-        "last_update": "2024-10-15 04:00:00",
-        "closing_price": 26.31,
-        "percentage_gained": -1.64
+        "last_update": "2024-10-15 05:00:00",
+        "closing_price": 26.48,
+        "percentage_gained": -1.01
     },
     {
         "type": "Bought",
@@ -4560,9 +4560,9 @@
         "date_bought": "2024-10-15 03:00:00",
         "price_bought": 0.01521,
         "order": 3461,
-        "last_update": "2024-10-15 04:00:00",
-        "closing_price": 0.0151,
-        "percentage_gained": -0.72
+        "last_update": "2024-10-15 05:00:00",
+        "closing_price": 0.01533,
+        "percentage_gained": 0.79
     },
     {
         "type": "Bought",
@@ -4570,7 +4570,10 @@
         "symbol": "ADAEUR",
         "date_bought": "2024-10-15 04:00:00",
         "price_bought": 0.329701,
-        "order": 3648
+        "order": 3648,
+        "last_update": "2024-10-15 05:00:00",
+        "closing_price": 0.331102,
+        "percentage_gained": 0.42
     },
     {
         "type": "Bought",
@@ -4578,6 +4581,17 @@
         "symbol": "STXEUR",
         "date_bought": "2024-10-15 04:00:00",
         "price_bought": 1.6614,
-        "order": 2901
+        "order": 2901,
+        "last_update": "2024-10-15 05:00:00",
+        "closing_price": 1.6594,
+        "percentage_gained": -0.12
+    },
+    {
+        "type": "Bought",
+        "strategy": "Long",
+        "symbol": "STXEUR",
+        "date_bought": "2024-10-15 05:00:00",
+        "price_bought": 1.6594,
+        "order": 3672
     }
 ]
