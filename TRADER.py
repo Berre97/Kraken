@@ -172,11 +172,8 @@ class apibot():
 
 
         df['volume_MA'] = df['volume'].rolling(window=20).mean()
-        df['Bullish'] = (df['EMA_8'] > df['EMA_13']) & (df['EMA_13'] > df['EMA_21']) & (df['EMA_21'] > df['EMA_55'])
-        df['Bearish'] = (df['EMA_8'] < df['EMA_13']) & (df['EMA_13'] < df['EMA_21']) & (df['EMA_21'] < df['EMA_55'])
-        df['Buy Signal Long'] = df['EMA_above']
-        df['Buy Signal Short'] = df['EMA_below']
 
+        
         return df
 
     # Functie om signalen te controleren
@@ -316,7 +313,7 @@ class apibot():
                     
 
         #Going long
-        if last_row['Buy Signal Long'] and last_row['RSI_Overbought'] != True:
+        if last_row['EMA_above'] and last_row['RSI_Overbought'] != True:
             order_number = random.randint(1000, 9999)
             buy_message = f"Koop:\n Positie: Long\n Market: {last_row['market']} Prijs: {last_row['close']}"
             buy_order = {'type': 'Bought', 'strategy': 'Long', 'symbol': last_row['market'],
