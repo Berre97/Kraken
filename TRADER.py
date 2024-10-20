@@ -51,8 +51,6 @@ class apibot():
             try:
                 with open(file_path, 'r') as f:
                     data = json.load(f)
-                    print(data)
-
                     if not isinstance(data, list):
                         data = []
 
