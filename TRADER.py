@@ -330,7 +330,7 @@ class apibot():
             print('Geen long koopsignalen gevonden')
 
         #Going short
-        if last_row['Buy Signal Short'] and last_row['RSI_Oversold']:
+        if last_row['EMA_below'] and last_row['RSI_Oversold']:
             order_number = random.randint(1000, 9999)
             buy_message = f"Koop:\n Positie: Short\n Market: {last_row['market']} Prijs: {last_row['close']}"
             buy_order = {'type': 'Bought', 'strategy': 'Short', 'symbol': last_row['market'],
