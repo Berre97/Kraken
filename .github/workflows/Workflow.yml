@@ -1,11 +1,11 @@
 name: Workflow Kraken
-on:
+#on:
   schedule:
     - cron: '58 * * *  *' 
 
   workflow_dispatch: 
 
-jobs:
+#jobs:
   manage-data:
     runs-on: windows-latest
 
